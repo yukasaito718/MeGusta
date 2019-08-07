@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+ before_action :configure_permitted_parameters, if: :devise_controller?#deviseコントローラが動いた際、deviseのストロングパラメータを反映させる
 	def after_sign_in_path_for(resource)
 		if resource.is_a?(Admin)#adminのmodel名
 	  		admin_path
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
 	def configure_permitted_parameters
   	#ユーザ登録(sign_up)の際、ユーザ名(name)のデータ操作が許可される
-    	devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :last_name, :first_name, :last_name_katakana, :first_name_katakana, :street_address,:postal_code, :phone_number, :name_hurigana,])
+    	devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :last_name, :first_name, :last_name_katakana, :first_name_katakana, :street_address,:postal_code, :phone_number, :name_hurigana])
     	devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
 	end
 end

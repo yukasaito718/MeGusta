@@ -35,6 +35,10 @@ Rails.application.routes.draw do
     resources :makers, only: [:index, :show]
     resources :items, only: [:index, :show]
     resources :users, only: [:create, :destroy]
+    patch 'users/:id' => 'users#update'
+    get "/mypage" => 'users#show'
+    get "/users/:id/edit" => 'users#edit', as: 'user_edit'
+
   end
 
   # namespaceに属さないルーティング
@@ -46,9 +50,6 @@ Rails.application.routes.draw do
 
  	# ユーザーのトップページ・マイページshow,editのルーティング
   root "user/homes#top"
-  get "/mypage" => 'user/users#show'
-  get "/mypage/edit" => 'user/users#edit'
-  patch '/user' => 'user/users#update'
   post '/user' => 'user/users#create'
   # メーカーのトップページ・マイページshow,editのルーティング
   get '/maker' => "maker/homes#top"
