@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
 
 	def after_sign_in_path_for(resource)
-		if resource.is_a?(Admin)#Administrator　model名
+		if resource.is_a?(Admin)#adminのmodel名
 	  		admin_path
-		elsif resource.is_a?(Maker)
+		elsif resource.is_a?(Maker)#Makerのmodel名
 			maker_path
 		else
 			root_path
@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
   	end
 
 	def after_sign_out_path_for(resource_or_scope)
-    	if resource_or_scope == :user
+    	if resource_or_scope == :user #userのモデル名
       		new_user_session_path
-      	elsif resource_or_scope == :maker
+      elsif resource_or_scope == :maker #makerのモデル名
       		new_maker_session_path
     	else
       		new_admin_session_path

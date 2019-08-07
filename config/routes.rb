@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'home/top'
   devise_for :makers, controllers: {
     sessions:      'makers/sessions',
     passwords:     'makers/passwords',
@@ -20,14 +18,13 @@ Rails.application.routes.draw do
   }
 
   namespace :maker do
-    resources :shops, only: [:index, :show]
+    resources :shops, only: [:index, :show, :new, :edit, :create, :update, :destroy]
     resources :makers, only: [:index, :show, :new, :edit, :create, :update, :destroy]
-    resources :items, only: [:index, :show]
-    resources :users, only: [:create, :destroy]
+    resources :items, only: [:index, :show, :new, :edit, :create, :update, :destroy]
   end
 
   namespace :admin do
-    resources :users, only: [:edit, :update, :index, :show]
+    resources :users, only: [:index, :show, :edit, :update]
     resources :items, only: [:index, :show, :new, :edit, :create, :update, :destroy]
     resources :makers, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy]
@@ -46,6 +43,22 @@ Rails.application.routes.draw do
   # get '/mypage/edit', to: 'user/users#edit'
   # patch '/user', to: 'user/users#update'
   # post '/user' , to: 'user/users#create'
- 	root "user/home#top"
+
+ 	# ユーザーのトップページ・マイページshow,editのルーティング
+  root "user/homes#top"
+  get "/mypage" => 'user/users#show'
+  get "/mypage/edit" => 'user/users#edit'
+  patch '/user' => 'user/users#update'
+  post '/user' => 'user/users#create'
+  # メーカーのトップページ・マイページshow,editのルーティング
+  get '/maker' => "maker/homes#top"
+  get "/makerpage" => 'maker/makers#show'
+  get "/makerpage/edit" => 'maker/makers#edit'
+  patch '/maker' => 'maker/makers#update'
+  post '/maker' => 'maker/makers#create'
+
+  # 管理側のトップページルーティング
+  get '/admin' => "admin/homes#top"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
