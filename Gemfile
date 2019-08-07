@@ -69,3 +69,4 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'kaminari','~> 1.1.1'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem "pry-rails"
+gem "font-awesome-rails"
