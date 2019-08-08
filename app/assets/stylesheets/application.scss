@@ -16,6 +16,34 @@
     @import "bootstrap-sprockets";
     @import "bootstrap";
     @import " font-awesome ";
+
+//マイページ編集画面
+.main {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.profile-text {
+	height: auto;
+	text-align: left;
+	border-radius: 10%;
+	border: solid 1px;
+	margin: 0 auto;
+	margin: 50px 50px;
+	padding: 30px 0 30px 0;
+}
+.actions {
+	padding-top: 30px;
+}
 .main {
 	font-family:"Meiryo",sans-serif;
+}
+
+//新規商品登録画面
+.item-box {
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+	border-radius: 10%;
+	border: solid 1px;
 }

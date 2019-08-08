@@ -1,2 +1,22 @@
 <h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+
+
+	<!-- メッセージの表示 -->
+<% if flash[:notice] %>
+	<p class="text-font notice"><%= flash[:notice] %></p>
+<% end %>
+
+  <% if maker_signed_in? %>
+  <li class="nav-list-item-right">
+    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+    <%= link_to "ログアウト", destroy_maker_session_path, method: :delete, class: "link-decoration" %>
+  </li>
+  <li class="nav-list-item-right">
+  	<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+	<%= link_to "makerpage", makerpage_path(current_maker), class: "btn btn-success" %>
+  </li>
+    <li class="nav-list-item-right">
+    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+  <%= link_to "makerpage", new_maker_item_path(current_maker), class: "btn btn-success" %>
+  </li>
+  <% end %>

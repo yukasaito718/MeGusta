@@ -1,10 +1,13 @@
 class Maker::MakersController < ApplicationController
+
 	def show
 		@maker = current_maker
 	end
+
 	def edit
 		@maker = current_maker
 	end
+
 	def update
 		@maker = Maker.find(current_maker.id)
 		flag = params[:is_deleted]
@@ -25,8 +28,9 @@ class Maker::MakersController < ApplicationController
 	end
 
 	private
-	def user_params
-		params.require(:maker).permit(:name, :name_hurigana, :street_address, :phone_number, :postal_code, :email, :is_deleted, :password )
+
+	def maker_params
+		params.require(:maker).permit(:name, :name_hurigana, :street_address, :phone_number, :postal_code, :email, :is_deleted, :password, :image)
 	end
 end
 
