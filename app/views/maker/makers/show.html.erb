@@ -1,1 +1,50 @@
-show.html.erb
+<body>
+	<main class="clearfix">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6 text-font">
+					<!-- お知らせメッセージを表示する -->
+					<% if flash[:notice] %>
+						<p class="text-font notice"><%= flash[:notice] %></p>
+					<% end %>
+					<div class="user-link-btn">
+						<h2>My Profile
+							<span class="btn"><%# link_to "アドレス帳", user_addresses_path, class: "btn btn-success" %></span>
+							<span class="btn"><%# link_to "購入履歴", user_orders_path, class: "btn btn-success" %></span>
+						</h2>
+					</div>
+					<!-- プロフィール内容 -->
+					<div class="user-profile-text panel panel-primary box-shadow">
+						<div class="text">
+							<div class="space"><%= attachment_image_tag item, :image,  size: "300x300", fallback: "no_image.jpg", class:"item-contents-picture"%></div>
+							<h3>本社名</h3>
+							<div class="space"><%= @maker.name %></div>
+							<h3>ふりがな</h3>
+							<div class="space"><%= @maker.name_hurigana %></div>
+							<h3>郵便番号</h3>
+							<div class="space"><%= @maker.postal_code %></div>
+							<h3>住所</h3>
+							<div class="space"><%= @maker.street_address %></div>
+							<h3>電話番号</h3>
+							<div class="space"><%= @maker.phone_number %></div>
+							<h3>メールアドレス</h3>
+							<div class="space"><%= @maker.email %></div>
+						</div>
+						<div class="user-pofile-btn">
+							<%= link_to "編集",maker_maker_edit_path(@maker.id), class: "btn btn-success" %>
+							<%= link_to "戻る", root_path, class: "btn btn-default" %>
+						</div>
+					</div>
+					<div class="user-delete-btn">
+						<% if @maker.is_deleted == true%>
+						<%= link_to '退会する', maker_path(:id => @maker.id, :is_deleted => 'false'),
+						:method => :patch,"data-confirm" => "本当に退会しますか？" , class: "btn btn-danger"%>
+						<% end %>
+					</div>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+		</div>
+	</main>
+</body>

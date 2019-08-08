@@ -16,10 +16,10 @@ class Maker::MakersController < ApplicationController
 	  	  	@maker = Maker.find(current_maker.id)
 			if @maker.update(maker_params)
 				flash[:notice] = "プロフィール内容を更新しました。"
-				redirect_to user_mypage_path(current_maker)
+				redirect_to makerpage_path(current_maker)
 			else
 				flash[:notice] = "編集の更新に失敗しました"
-				redirect_to user_mypage_edit_path(current_user)
+				redirect_to makerpage_edit_path(current_user)
 			end
 		end
 	end
