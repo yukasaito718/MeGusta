@@ -1,0 +1,64 @@
+<body>
+	<main class="clearfix">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6 text-font">
+					<!-- お知らせメッセージを表示する -->
+					<% if flash[:notice] %>
+						<p class="text-font notice"><%= flash[:notice] %></p>
+					<% end %>
+					<div class="user-link-btn">
+						<h2>商品詳細内容
+							<span class="btn"><%# link_to "アドレス帳", user_addresses_path, class: "btn btn-success" %></span>
+							<span class="btn"><%# link_to "購入履歴", user_orders_path, class: "btn btn-success" %></span>
+						</h2>
+					</div>
+					<!-- 商品詳細内容 -->
+					<div class="user-profile-text panel panel-primary box-shadow">
+						<div class="text">
+							<div class="space"><%= attachment_image_tag @item, :image,  size: "100x100", fallback: "no_image.jpg", class:"item-contents-picture"%></div>
+							<h3>商品名</h3>
+							<div class="space"><%= @item.item_name %></div>
+							<h3>価格</h3>
+							<div class="space"><%= @item.price %></div>
+							<h3>内容個数</h3>
+							<div class="space"><%= @item.count %></div>
+							<h3>賞味期限</h3>
+							<div class="space"><%= @item.freshness_date %></div>
+							<div class="space">
+								<h3>販売ステータス</h3>
+								<% if @item.is_sold %>
+								<b><font color="#008000">取り扱い中</font></b>
+								<% else %>
+								<b><font color="#ff0000">取扱停止中</font></b>
+								<% end %>
+							</div>
+							<div class="space">
+								<h3>保存方法</h3>
+								<% if @item.is_refrigeration %>
+								<b><font color="#008000">常温保存</font></b>
+								<% else %>
+								<b><font color="#ff0000">要冷蔵</font></b>
+								<% end %>
+							</div>
+							<div class="space">
+								<h3>個装</h3>
+								<% if @item.is_packaged %>
+								<b><font color="#008000">あり</font></b>
+								<% else %>
+								<b><font color="#ff0000">なし</font></b>
+								<% end %>
+							</div>
+						</div>
+						<div class="user-pofile-btn">
+							<%= link_to "編集",makerpage_edit_path(current_user), class: "btn btn-success" %>
+							<%= link_to "戻る", root_path, class: "btn btn-default" %>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+		</div>
+	</main>
+</body>

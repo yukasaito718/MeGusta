@@ -6,11 +6,6 @@ class Maker::ItemsController < ApplicationController
 
     def create  #投稿保存#form_forの情報がやってくるアクション
 		@item = Item.new(item_params)
-		p 'test'
-		p current_maker
-		p current_maker[:id]
-		p current_maker.id
-		p @item
 		@item.maker_id = current_maker.id
 		if @item.save
             flash[:notice] = "商品登録に成功しました。"
@@ -22,9 +17,24 @@ class Maker::ItemsController < ApplicationController
         end
 	end
 
+	def edit
+		@item = Item.find(params[:id])
+	end
+
+	def update
+		@item = Item.find(current_maker.id)
+		if @item.update(item_params)
+			flash[:notice] = "編集内容を更新しました。"
+			redirect_to makerpage_path(current_maker)
+		else
+			flash[:notice] = "編集の更新に失敗しました"
+			redirect_to makerpage_edit_path(current_maker)
+		end
+	end
+
 	private
 
 	def item_params
-		params.require(:item).permit(:item_name, :price, :count, :url, :is_sold, :image, :maker_id)
+		params.require(:item).permit(:item_name, :price, :count, :url, :is_sold, :image, :maker_id, :is_refrigeration, :is_packaged, :freshness_date)
 	end
 end

@@ -1,44 +1,37 @@
-<div class = "col-xs-9">
-	<% if flash[:notice] %>
-    <div class="alert alert-danger">
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-	<h1>商品新規追加画面</h1>
-    <div class="item-box">
-      <div class="item-text-box">
-        <%= form_for [@item], url:maker_items_path do |f| %>
+<div class="item-edit-form text-font panel panel-primary box-shadow">
+  <div class="item-edit-text">
+      <%= form_for [:maker, @item] do |f| %>
         <div class="field">
           <div class="row">
             <label>商品名</label><br>
             <div class="col-xs-8">
-            <%= f.text_field :item_name, class:'form-control', :placeholder => "シングル/アルバム名を入力 " %>
+            <%= f.text_field :item_name, class:'form-control', :placeholder => "" %>
             </div>
           </div>
-	        <div class="row">
-	            <label >販売価格</label><br>
-	            <div class="col-xs-6">
-	            <%= f.text_field :price, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
-	            </div>
-	        </div>
-	        <div class="row">
-	            <label >内容個数</label><br>
-	            <div class="col-xs-6">
-	            <%= f.text_field :count, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
-	            </div>
-	        </div>
+          <div class="row">
+              <label >販売価格</label><br>
+              <div class="col-xs-6">
+              <%= f.text_field :price, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
+              </div>
+          </div>
+          <div class="row">
+              <label >内容個数</label><br>
+              <div class="col-xs-6">
+              <%= f.text_field :count, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
+              </div>
+          </div>
           <div class="row">
               <label >賞味期限</label><br>
               <div class="col-xs-6">
               <%= f.text_field :freshness_date, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
               </div>
           </div>
-	        <div class="row">
-	            <label >URL</label><br>
-	            <div class="col-xs-6">
-	            <%= f.text_field :url, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
-	            </div>
-	        </div>
+          <div class="row">
+              <label >URL</label><br>
+              <div class="col-xs-6">
+              <%= f.text_field :url, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
+              </div>
+          </div>
             <label >販売ステータス</label><br>
             <div>
               <div class="radio">
@@ -54,7 +47,7 @@
             <div>
               <div class="radio">
                 <%= f.radio_button :is_refrigeration, 'true', { id:"radio-1", type:"radio", checked: true}%>
-                <label for="radio-1" class="radio-label">常温保存可能</label>
+                <label for="radio-1" class="radio-label">常温保存</label>
               </div>
               <div class="radio">
                 <%= f.radio_button :is_refrigeration, 'false', { id:"radio-2", type:"radio"} %>
@@ -76,9 +69,8 @@
             <label >画像</label><br>
               <%= f.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
           </div>
-
               <div class="actions">
-                <%= f.submit "商品新規追加", class: "btn btn-primary" %>
+                <%= f.submit "編集", class: "btn btn-primary" %>
               </div>
             <% end %>
         </div>
