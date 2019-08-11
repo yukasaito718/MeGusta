@@ -5,6 +5,19 @@
 		</div>
 	<% end %>
 
+	<% if params[:keywords].blank? %><!--もし検索ワードが空欄（スペース含む）ならタイトルだけ表示-->
+		<h1 class="addmin-item-index">All Items</h1>
+	<% else %><!-- 空欄でなければ検索ワード＋に関連する商品一覧を表示 -->
+		<p class="search-notice"><%= "「" + params[:keywords] + "」" + "に関連する商品一覧"%></p>
+	<% end %>
+
+	<div class="form-inline addmin-search-box"><!--検索フォーム-->
+		<%= form_tag admin_items_path, method: :get do %>
+		<%= text_field_tag :keywords, '', placeholder: "キーワードで検索", class: "form-control", size: 70%>
+		<%= submit_tag '検索' , :item_name => nil, class: "btn btn-success"%>
+		<% end %>
+	</div><br>
+
 	<% @items.each do |item| %>
 	<div class="item-box">
 		<%= link_to user_item_path(item.id) do %>
