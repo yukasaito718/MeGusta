@@ -13,7 +13,7 @@
 
 	<div class="form-inline addmin-search-box"><!--検索フォーム-->
 		<%= form_tag admin_items_path, method: :get do %>
-		<%= text_field_tag :keywords, '', placeholder: "キーワードで検索", class: "form-control", size: 70%>
+		<%= text_field_tag :keywords, '', placeholder: "キーワード検索", class: "form-control", size: 70%>
 		<%= submit_tag '検索' , :item_name => nil, class: "btn btn-success"%>
 		<% end %>
 	</div><br>

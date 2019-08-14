@@ -9,7 +9,7 @@ class Item < ApplicationRecord
 			results = []#結果を[配列]に入れて保存する
 			keywords.each do |keyword|#keywordを変数に入れてdoからendまでの処理を繰り返す
 				results += where(['item_name LIKE ?', "%#{keyword}%"]) unless where(['item_name LIKE ?', "%#{keyword}%"]).nil?#
-				results += Item.search_for_shop(keyword) unless Item.search_for_shop(keyword).nil?
+				results += Item.search_for_shop(keyword) unless Item.search_for_shop(keyword).nil?#nilなら前者の記述を返す　nilのエラーの条件分岐
 		end
 			results.uniq#検索結果の重複を取り除く
 		else
