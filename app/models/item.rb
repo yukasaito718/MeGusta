@@ -3,6 +3,8 @@ class Item < ApplicationRecord
 	has_many :favorites
 	belongs_to :maker
 	attachment :image
+	has_many :item_category_relations
+	has_many :categories, through: :item_category_relations
 
 	def self.search(keywords)
 		if keywords.present?#もしあったら

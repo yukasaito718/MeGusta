@@ -1,3 +1,16 @@
 // Place all the styles related to the item controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//新規商品登録画面
+.item-box {
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+	border-radius: 10px;
+	border: solid 1px;
+}
+.item-text-box {
+	width: 80%;
+	margin: 0 auto;
+}

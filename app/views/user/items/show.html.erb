@@ -50,6 +50,11 @@
 								<b><font color="#ff0000">なし</font></b>
 								<% end %>
 							</div>
+							<div class="space">
+								<% @item.categories.each do |category| %>
+								  <%= category.name %>
+								<% end %>
+							</div>
 						</div>
 						<div class="user-pofile-btn">
 							<%= link_to "編集",makerpage_edit_path(current_user), class: "btn btn-success" %>

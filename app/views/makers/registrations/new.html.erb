@@ -79,13 +79,6 @@
                   <%= f.password_field :password_confirmation, autofocus: true, class:'form-control', placeholder:"※半角　英数字" %>
                 </div>
               </div>
-              <%= f.fields_for :shops do |shop| %>
-                <%= shop.file_field :name %>
-                <%= shop.file_field :name_hurigana %>
-                <%= shop.file_field :postal_code %>
-                <%= shop.file_field :street_address %>
-                <%= shop.file_field :phone_number %>
-                <%= shop.hidden_field :id, value: shop.object.id %>
               <div class="row">
                 <div class="col-sm-7">
                   <div class="actions">

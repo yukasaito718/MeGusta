@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+
+ 
     @import "bootstrap-sprockets";
     @import "bootstrap";
     @import " font-awesome ";
@@ -37,13 +40,4 @@
 }
 .main {
 	font-family:"Meiryo",sans-serif;
-}
-
-//新規商品登録画面
-.item-box {
-	width: 90%;
-	height: auto;
-	margin: 0 auto;
-	border-radius: 10%;
-	border: solid 1px;
 }

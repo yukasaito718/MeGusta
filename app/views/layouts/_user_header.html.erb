@@ -9,19 +9,15 @@
     ようこそ、<%= current_user.name %>さん！！
   </div>
   <% else %>
-  <div class="welcome-text">
-    ようこそ、ECD'sへ！！
-  </div>
   <% end %>
 
+  <% if user_signed_in? %>
   <div class="form-inline header-search-box">
     <%= form_tag user_items_path, method: :get do %>
     <%= text_field_tag :keywords, '', placeholder: "キーワードで検索", class: "form-control", size: 30 %>
     <%= submit_tag '検索' , :item_name => nil, class: "btn btn-success"%>
     <% end %>
   </div>
-
-  <% if user_signed_in? %>
   <li class="nav-list-item-right">
     <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link-decoration" %>
