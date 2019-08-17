@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_16_123709) do
+ActiveRecord::Schema.define(version: 2019_08_17_045023) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2019_08_16_123709) do
     t.boolean "is_sold"
     t.text "image_id"
     t.integer "count"
-    t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "shop_id"
@@ -68,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_08_16_123709) do
     t.boolean "is_packaged"
     t.integer "maker_id"
     t.text "freshness_date"
+    t.text "introduction"
   end
 
   create_table "makers", force: :cascade do |t|
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2019_08_16_123709) do
     t.text "image_id"
     t.boolean "is_deleted"
     t.string "name"
+    t.text "url"
     t.index ["email"], name: "index_makers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_makers_on_reset_password_token", unique: true
   end
