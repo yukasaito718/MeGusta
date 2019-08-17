@@ -1,13 +1,13 @@
 class FavoritesController < ApplicationController
-	before_action :logged_in_user
-	#お気に入り機能
+		before_action :authenticate_user!	#お気に入り機能
+
 	def create
-		@item = Item.find(params[:item_id])
-		@item.iine(current_user)#iine⇒itemモデルで定義したお気に入り追加メソッド
+		favorite = Favorite.new(user_id:current_user.id,item_id:params[:item_id])
+		favorite.save
 	end
 
 	def destroy
-	    @item = Favorte.find(params[:id]).item
-	    @item.uniine(current_user)#uniine⇒itemモデルで定義したお気に入り解除メソッド
+	   favorite  = Favorite.find(params[:id])
+	   favorite.destroy
 	end
-	end
+end

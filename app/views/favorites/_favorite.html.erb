@@ -1,9 +1,8 @@
-<% if !current_user?(item.user) %>
     <span class="like">
-    <% if .iine?(current_user) %>
-      <%= form_for(item.favorites.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+    <% if item.iine?(current_user) %>
+      <%= form_for(Favorite.find_by(user_id: current_user.id,item_id:item.id), method: :delete, remote: true) do |f| %>
         <%= button_tag(class: "btn btn-default btn-xs") do %>
-          <%= content_tag :span, "#", class: "glyphicon glyphicon-heart" %>
+          <%= content_tag :span, "#", class: "glyphicon glyphicon-heart" ,style:"color: red;"%>
         <% end %>
       <% end %>
     <% else %>
@@ -15,4 +14,3 @@
       <% end %>
     <% end %>
   </span>
-<% end %>

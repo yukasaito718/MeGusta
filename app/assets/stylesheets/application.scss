@@ -41,3 +41,69 @@
 .main {
 	font-family:"Meiryo",sans-serif;
 }
+
+#検索フォーム
+* {
+  box-sizing: border-box;
+}
+
+.inner {
+  position: relative;
+  height: 44px;
+  margin: 0 auto;
+  width: 44px;
+}
+
+.search-btn {
+  background: #F27398;
+  border-radius: 50%;
+  display: inline-block;
+  height: 44px;
+  line-height: 44px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 44px;
+}
+
+.search-btn i {
+  color: #fff;
+  margin: 0;
+}
+
+#searchform {
+  height: 44px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  width: 44px;
+}
+
+input[type="text"] {
+  background: #ccc;
+  border: none;
+  border-radius: 22px;
+  color: #333;
+  cursor: pointer;
+  height: 44px;
+  opacity: 0;
+  outline: none;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: all 0.7s;
+  width: 44px;
+  z-index: 5;
+}
+
+input[type="submit"] {
+  display: none;
+}
+
+input[type="text"]:focus {
+  cursor: text;
+  opacity: 1;
+  width: 300px;
+}

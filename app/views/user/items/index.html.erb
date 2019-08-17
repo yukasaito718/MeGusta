@@ -11,13 +11,6 @@
 		<p class="search-notice"><%= "「" + params[:keywords] + "」" + "に関連する商品一覧"%></p>
 	<% end %>
 
-	<div class="form-inline addmin-search-box"><!--検索フォーム-->
-		<%= form_tag admin_items_path, method: :get do %>
-		<%= text_field_tag :keywords, '', placeholder: "キーワード検索", class: "form-control", size: 70%>
-		<%= submit_tag '検索' , :item_name => nil, class: "btn btn-success"%>
-		<% end %>
-	</div><br>
-
 	<% @items.each do |item| %>
 	<div class="item-box">
 		<%= link_to user_item_path(item.id) do %>
@@ -27,7 +20,7 @@
 			<br>
 			<%= item.item_name %><br>
 			<%= item.price %>円（税別）<br>
-			<%= render "favorites/favorite", item: item %>
+			<div id="item-<%= item.id%>"><%= render "favorites/favorite", item: item %></div>
 		</div>
 	</div>
 	<% end %>

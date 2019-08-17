@@ -7,15 +7,7 @@ class Item < ApplicationRecord
 	has_many :categories, through: :item_category_relations
 	has_many :iine_users, through: :favorites, source: :user
 
-	 # アイテムをお気に入りする
-	def iine(user)
-		favorites.create(user_id: user.id)
-	end
 
-	# アイテムのお気に入りを解除する
-	def uniine(user)
-		favorites.find_by(user_id: user.id).destroy
-	end
 	#現在のユーザーがいいねしてたらtrueを返す
 	def iine?(user)
 		iine_users.include?(user)
@@ -42,5 +34,3 @@ class Item < ApplicationRecord
 		maker.try(:items)#makerIDから紐づくitemのIDを見つけ出す。try ⇒ nilならスルーしてくれる
 	end
 end
-
-　

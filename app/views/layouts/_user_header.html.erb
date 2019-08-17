@@ -1,8 +1,8 @@
 
 <header>
   <%= link_to root_path do%>
-    <div class="site-logo">
-    </div>
+  <div class="site-logo">
+  </div>
   <% end %>
   <% if user_signed_in? %>
   <div class="welcome-text">
@@ -11,12 +11,17 @@
   <% else %>
   <% end %>
 
+
   <% if user_signed_in? %>
-  <div class="form-inline header-search-box">
-    <%= form_tag user_items_path, method: :get do %>
-    <%= text_field_tag :keywords, '', placeholder: "キーワードで検索", class: "form-control", size: 30 %>
-    <%= submit_tag '検索' , :item_name => nil, class: "btn btn-success"%>
-    <% end %>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <div class="inner">
+    <form id="searchform">
+      <%= form_tag user_items_path, method: :get do %>
+      <%= text_field_tag :keywords, '',{id:'text',type:'text',placeholder:'検索キーワード'} %>
+      <%= submit_tag '' , :item_name => nil %>
+      <% end %>
+    </form>
+    <a href="#" class="search-btn"><i class="fa fa-search"></i></a>
   </div>
   <li class="nav-list-item-right">
     <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
@@ -27,7 +32,7 @@
     <%= link_to "商品一覧", user_items_path, class: "link-decoration" %>
   </li>
   <li class="nav-list-item-left">
-  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
     <%= link_to "マイページ", user_mypage_path, class: "link-decoration" %>
   </li>
   <% else %>
