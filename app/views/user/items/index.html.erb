@@ -27,6 +27,7 @@
 			<br>
 			<%= item.item_name %><br>
 			<%= item.price %>円（税別）<br>
+			<%= render "favorites/favorite", item: item %>
 		</div>
 	</div>
 	<% end %>

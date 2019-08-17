@@ -1,11 +1,28 @@
 class Item < ApplicationRecord
 	has_many :comments
-	has_many :favorites
+	has_many :favorites, dependent: :destroy
 	belongs_to :maker
 	attachment :image
 	has_many :item_category_relations
 	has_many :categories, through: :item_category_relations
+	has_many :iine_users, through: :favorites, source: :user
 
+	 # アイテムをお気に入りする
+	def iine(user)
+		favorites.create(user_id: user.id)
+	end
+
+	# アイテムのお気に入りを解除する
+	def uniine(user)
+		favorites.find_by(user_id: user.id).destroy
+	end
+	#現在のユーザーがいいねしてたらtrueを返す
+	def iine?(user)
+		iine_users.include?(user)
+	end
+
+
+	#検索用メソッド
 	def self.search(keywords)
 		if keywords.present?#もしあったら
 			results = []#結果を[配列]に入れて保存する

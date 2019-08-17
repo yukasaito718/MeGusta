@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   devise_for :makers, controllers: {
     sessions:      'makers/sessions',
     passwords:     'makers/passwords',
@@ -61,4 +63,5 @@ Rails.application.routes.draw do
   # 管理側のトップページルーティング
   get '/admin' => "admin/homes#top"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :favorites, only: [:create, :destroy]
 end
