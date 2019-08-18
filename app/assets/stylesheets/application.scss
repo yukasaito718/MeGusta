@@ -15,7 +15,7 @@
  */
 
 
- 
+
     @import "bootstrap-sprockets";
     @import "bootstrap";
     @import " font-awesome ";
@@ -42,7 +42,7 @@
 	font-family:"Meiryo",sans-serif;
 }
 
-#検索フォーム
+//検索フォーム
 * {
   box-sizing: border-box;
 }
@@ -106,4 +106,25 @@ input[type="text"]:focus {
   cursor: text;
   opacity: 1;
   width: 300px;
+}
+
+//スライドショー
+.skipper_size {
+   height: 200px;
+   width: 200px;
+}
+.image1{
+   background-image: url(test1.jpg);
+}
+.image2{
+   background-image: url(test2.jpg);
+}
+.image3{
+   background-image: url(test3.jpg);
+}
+.image4{
+   background-image: url(test4.jpg);
+}
+.image5{
+   background-image: url(test5.jpg);
 }
