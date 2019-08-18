@@ -13,6 +13,7 @@
 
 
   <% if user_signed_in? %>
+<!--   検索フォーム -->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <div class="inner">
     <form id="searchform">
@@ -21,8 +22,9 @@
       <%= submit_tag '' , :item_name => nil %>
       <% end %>
     </form>
-    <a href="#" class="search-btn"><i class="fa fa-search"></i></a>
+    <a href="#" class="search-btn"><i class="fa fa-search"></i></a><!--虫眼鏡アイコン -->
   </div>
+  <!--ヘッダーリンク先-->
   <li class="nav-list-item-right">
     <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link-decoration" %>

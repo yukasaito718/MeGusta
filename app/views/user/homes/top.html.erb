@@ -1,11 +1,11 @@
 
-<h1>User#Home#top</h1>
+<h1>Me Gusta</h1>
 <!-- メッセージの表示 -->
 <% if flash[:notice] %>
   <p class="text-font notice"><%= flash[:notice] %></p>
 <% end %>
     <div class="container">
-        <div class="theTarget">
+        <div id="theTarget">
             <div class="image1 skipper_size"></div>
             <div class="image2 skipper_size"></div>
             <div class="image3 skipper_size"></div>
@@ -13,10 +13,6 @@
             <div class="image5 skipper_size"></div>
         </div>
     </div>
-    <script src="javaspricts/jquery-3.4.1.min.js"></script> <!-- jquery.min.jsを読み込む -->
-    <script src="javaspricts/skippr.min.js"></script> <!-- skipprのjsファイルを読み込む -->
-    <script src="javaspricts/script.js"></script> <!-- script.jsファイルを読み込む -->
-
 
 
 <% @categories.each do |category| %>

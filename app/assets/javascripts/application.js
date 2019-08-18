@@ -21,10 +21,10 @@
 //スライドショー
 $(window).on('turbolinks:load', function(){
   $('.scroll-box').infiniteslide({
-  			//画像のスライドの速度
-			speed: 40,
-			clone: 10
-		});
+        //画像のスライドの速度
+      speed: 40,
+      clone: 10
+    });
 });
 
 $(document).on('turbolinks:load', function () {

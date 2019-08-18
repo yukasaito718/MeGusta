@@ -1,4 +1,6 @@
-    <span class="like">
+<!--     お気に入り機能ボタン画面の部分テンプレート
+ -->    <span class="like">
+      <div id="item-<%= item.id%>">
     <% if item.iine?(current_user) %>
       <%= form_for(Favorite.find_by(user_id: current_user.id,item_id:item.id), method: :delete, remote: true) do |f| %>
         <%= button_tag(class: "btn btn-default btn-xs") do %>
