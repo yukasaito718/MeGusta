@@ -35,13 +35,15 @@ Rails.application.routes.draw do
   namespace :user do
     resources :shops, only: [:index, :show]
     resources :makers, only: [:index, :show]
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show] do
+      resources :comments
+    end
     resources :users, only: [:create, :destroy]
     patch 'users/:id' => 'users#update'
     get "/mypage" => 'users#show'
     get "/users/:id/edit" => 'users#edit', as: 'user_edit'
-
   end
+
   resources :favorites, only: [:create, :destroy]
 
   # namespaceに属さないルーティング

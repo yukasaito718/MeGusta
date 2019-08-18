@@ -6,6 +6,7 @@ class Item < ApplicationRecord
 	has_many :item_category_relations
 	has_many :categories, through: :item_category_relations
 	has_many :iine_users, through: :favorites, source: :user
+	has_many :users, through: :comments
 
 
 	#現在のユーザーがいいねしてたらtrueを返す

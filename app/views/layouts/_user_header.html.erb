@@ -11,19 +11,20 @@
   <% else %>
   <% end %>
 
-
   <% if user_signed_in? %>
 <!--   検索フォーム -->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <div class="inner">
-    <form id="searchform">
-      <%= form_tag user_items_path, method: :get do %>
+<!--     <form id="searchform">
+ -->  <%= form_tag user_items_path,id:"searchform", method: :get do %>
       <%= text_field_tag :keywords, '',{id:'text',type:'text',placeholder:'検索キーワード'} %>
-      <%= submit_tag '' , :item_name => nil %>
+      <%= submit_tag '' ,id:"submit", :item_name => nil %>
       <% end %>
-    </form>
-    <a href="#" class="search-btn"><i class="fa fa-search"></i></a><!--虫眼鏡アイコン -->
+<!--     </form>
+ -->    <a href="#" class="search-btn"><i class="fa fa-search"></i></a><!--虫眼鏡アイコン -->
   </div>
+
+
   <!--ヘッダーリンク先-->
   <li class="nav-list-item-right">
     <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>

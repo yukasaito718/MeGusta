@@ -1,4 +1,4 @@
-class AdressesController < ApplicationController
+class Maker::AdressesController < ApplicationController
 	def new
 		@adress = Adress.new
 	end

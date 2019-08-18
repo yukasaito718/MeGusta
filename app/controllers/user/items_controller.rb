@@ -10,5 +10,7 @@ class User::ItemsController < ApplicationController
 	end
 	def show
 		@item = Item.find(params[:id])
+		@comment = Comment.new
+		@comments = @item.comments
 	end
 end

@@ -65,4 +65,15 @@
 			</div>
 		</div>
 	</main>
+	  <div>
+    <h4>コメント</h4>
+    <div id="comments_area"><!-- #① -->
+      <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+      <%= render partial: 'comments/index', locals: { comments: @comments } %>
+    </div>
+    <% if user_signed_in? %>
+      <!-- コメント入力欄をの詳細ページに表示するためのrender -->
+      <%= render partial: 'comments/form', locals: { comment: @comment, item: @item } %>
+    <% end %>
+  </div>
 </body>
