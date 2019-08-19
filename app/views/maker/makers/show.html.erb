@@ -17,7 +17,8 @@
 					<!-- プロフィール内容 -->
 					<div class="user-profile-text panel panel-primary box-shadow">
 						<div class="text">
-							<div class="space"><%= attachment_image_tag @maker, :image,  size: "100x100", fallback: "no_image.jpg", class:"item-contents-picture"%></div>
+							<div class="space">
+							<%= attachment_image_tag @maker, :image,  size: "100x100", fallback: "no_image.jpg", class:"item-contents-picture"%></div>
 							<h3>本社名</h3>
 							<div class="space"><%= @maker.name %></div>
 							<h3>ふりがな</h3>

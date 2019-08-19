@@ -11,18 +11,21 @@
   <% else %>
   <% end %>
 
-  <% if user_signed_in? %>
-<!--   検索フォーム -->
+<% if user_signed_in? %>
+  <!--   検索フォーム -->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <div class="inner">
-<!--     <form id="searchform">
- -->  <%= form_tag user_items_path,id:"searchform", method: :get do %>
-      <%= text_field_tag :keywords, '',{id:'text',type:'text',placeholder:'検索キーワード'} %>
-      <%= submit_tag '' ,id:"submit", :item_name => nil %>
-      <% end %>
-<!--     </form>
- -->    <a href="#" class="search-btn"><i class="fa fa-search"></i></a><!--虫眼鏡アイコン -->
+  <%= form_tag user_items_path,id:"searchform", method: :get do %>
+  <%= text_field_tag :keywords, '',{class:'search',id:'text',type:'text',placeholder:'検索キーワード'} %>
+  <%= submit_tag '' ,id:"submit", :item_name => nil %>
+  <% end %>
+  <a href="#" class="search-btn"><i class="fa fa-search"></i></a><!--虫眼鏡アイコン -->
   </div>
+  <%# @categories.each do |category| %>
+    <%# link_to user_items_path do %>
+      <%# category.name %>
+    <%# end %>
+  <%# end %>
 
 
   <!--ヘッダーリンク先-->
@@ -55,6 +58,7 @@
     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
     <%= link_to "マイページ", user_mypage_path, class: "link-decoration" %>
   </li>
-  <% end %>
+<% end %>
 
 </header>
+

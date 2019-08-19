@@ -22,6 +22,7 @@ class Item < ApplicationRecord
 			keywords.each do |keyword|#keywordを変数に入れてdoからendまでの処理を繰り返す
 				results += where(['item_name LIKE ?', "%#{keyword}%"]) unless where(['item_name LIKE ?', "%#{keyword}%"]).nil?#
 				results += Item.search_for_shop(keyword) unless Item.search_for_shop(keyword).nil?#nilなら前者の記述を返す　nilのエラーの条件分岐
+				results += Item.search_for_maker(keyword) unless Item.search_for_maker(keyword).nil?#nilなら前者の記述を返す　nilのエラーの条件分岐
 		end
 			results.uniq#検索結果の重複を取り除く
 		else
@@ -34,4 +35,9 @@ class Item < ApplicationRecord
 		maker = shop.try(:maker)#shopのIDから紐づくmakerIDを見つけ出す。try ⇒ nilならスルーしてくれる
 		maker.try(:items)#makerIDから紐づくitemのIDを見つけ出す。try ⇒ nilならスルーしてくれる
 	end
+		def self.search_for_maker(keyword)#classメソッド（ショップ名からアイテムを見つけ出す）
+		maker = Maker.find_by(name: keyword)#shopのモデルの中からkeywordと同じショップ名を探してIDをshop変数に入れる
+		maker.try(:items)#makerIDから紐づくitemのIDを見つけ出す。try ⇒ nilならスルーしてくれる
+	end
+
 end

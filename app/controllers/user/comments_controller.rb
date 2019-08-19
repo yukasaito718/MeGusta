@@ -4,7 +4,7 @@ class User::CommentsController < ApplicationController
 		@comment = @item.comments.build(comment_params)
 		@comment.user_id = current_user.id
 		if @comment.save
-		render index
+		render :index
 		end
 	end
 	def destroy

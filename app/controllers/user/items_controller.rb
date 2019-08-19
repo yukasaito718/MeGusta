@@ -7,10 +7,13 @@ class User::ItemsController < ApplicationController
 			keywords = ""
 		end
 		@items = Item.search(keywords)
+		@categories = Category.all
 	end
+
 	def show
 		@item = Item.find(params[:id])
 		@comment = Comment.new
 		@comments = @item.comments
+		@categories = Category.all
 	end
 end
