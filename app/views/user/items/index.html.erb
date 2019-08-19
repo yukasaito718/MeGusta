@@ -11,12 +11,12 @@
 		<p class="search-notice"><%= "「" + params[:keywords] + "」" + "に関連する商品一覧"%></p>
 	<% end %>
 
-	<% @items.each do |item| %>
 	<div class="item-box">
+		<% @items.each do |item| %>
 		<%= link_to user_item_path(item.id) do %>
 		<div class="item-contents">
 			<%= attachment_image_tag item, :image,  size: "200x200", fallback: "no_image.jpg", class:"item-contents-picture" %>
-			<% end %>
+		<% end %>
 			<br>
 			<%= item.item_name %><br>
 			<%= item.price %>円（税別）<br>
@@ -25,6 +25,7 @@
 	</div>
 	<% end %>
 </div>
+
 <div class="addmin-paginate-items">
 	<%# paginate @items, class: "paginate" %>
 </div>

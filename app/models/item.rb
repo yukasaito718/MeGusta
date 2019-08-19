@@ -31,13 +31,24 @@ class Item < ApplicationRecord
 	end
 
 	def self.search_for_shop(keyword)#classメソッド（ショップ名からアイテムを見つけ出す）
-		shop = Shop.find_by(name: keyword)#shopのモデルの中からkeywordと同じショップ名を探してIDをshop変数に入れる
-		maker = shop.try(:maker)#shopのIDから紐づくmakerIDを見つけ出す。try ⇒ nilならスルーしてくれる
-		maker.try(:items)#makerIDから紐づくitemのIDを見つけ出す。try ⇒ nilならスルーしてくれる
+		# shop = Shop.find_by(name: keyword)#shopのモデルの中からkeywordと同じショップ名を探してIDをshop変数に入れる
+		# maker = shop.try(:maker)#shopのIDから紐づくmakerIDを見つけ出す。try ⇒ nilならスルーしてくれる
+		# maker.try(:items)#makerIDから紐づくitemのIDを見つけ出す。try ⇒ nilならスルーしてくれる
+		# shop.items
+		results = []
+		shops = Shop.where('name like ?', "%#{keyword}%")
+		shops.each do |shop|
+			results += shop.try(:items)
+		end
+		results
 	end
 		def self.search_for_maker(keyword)#classメソッド（ショップ名からアイテムを見つけ出す）
-		maker = Maker.find_by(name: keyword)#shopのモデルの中からkeywordと同じショップ名を探してIDをshop変数に入れる
-		maker.try(:items)#makerIDから紐づくitemのIDを見つけ出す。try ⇒ nilならスルーしてくれる
+		results = []
+		makers = Maker.where('name like ?', "%#{keyword}%")
+		makers.each do |maker|
+			results += maker.try(:items)
+		end
+		results
 	end
 
 end

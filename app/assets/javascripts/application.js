@@ -51,3 +51,19 @@ $(document).on('turbolinks:load', function () {
       hidePrevious : false
   });
 });
+
+//ハンバーガー
+$(function() {
+ 
+  $('.menu-trigger').on('click', function() {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    return false;
+  });
+  
+ $('.toggle_switch').on('click',function(){
+  $(this).toggleClass('open');
+  $(this).next('.toggle_contents').slideToggle();
+});
+ 
+ });

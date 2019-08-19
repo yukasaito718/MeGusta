@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   namespace :user do
     resources :shops, only: [:index, :show]
     resources :makers, only: [:index, :show]
+    resources :categories, only: [:index] do
+      resources :items, only: [:index]
+    end
     resources :items, only: [:index, :show] do
       resources :comments
     end

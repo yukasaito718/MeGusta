@@ -6,7 +6,11 @@ class User::ItemsController < ApplicationController
 		else
 			keywords = ""
 		end
-		@items = Item.search(keywords)
+		@items = if params[:category_id]
+					Category.find(params[:category_id]).items
+				 else
+				 	Item.search(keywords)
+				 end
 		@categories = Category.all
 	end
 
