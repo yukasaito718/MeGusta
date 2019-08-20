@@ -1,0 +1,6 @@
+
+		<%@categories.each do |category| %>
+			<%= link_to user_category_items_path(category.id) do %>
+			<%= category.name %>
+			<% end %>
+		<% end %>

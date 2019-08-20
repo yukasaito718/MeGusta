@@ -1,4 +1,5 @@
 class Maker::MakersController < ApplicationController
+	before_action :authenticate_maker!
 
 	def show
 		@maker = current_maker

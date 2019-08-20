@@ -4,14 +4,13 @@
 <% if flash[:notice] %>
   <p class="text-font notice"><%= flash[:notice] %></p>
 <% end %>
-    <div class="container">
-        <div id="theTarget">
-            <div class="image1 skipper_size"></div>
-            <div class="image2 skipper_size"></div>
-            <div class="image3 skipper_size"></div>
-            <div class="image4 skipper_size"></div>
-            <div class="image5 skipper_size"></div>
-        </div>
-    </div>
-
-
+<!-- スライドショー-->
+ <div class="slider-container">
+  <div class="slider">
+    <div>1<%#= image_tag "test1.jpg" %></div>
+    <div>2<%#= image_tag "test2.jpg" %></div>
+    <div>3<%#= image_tag "test3.jpg" %></div>
+    <div>4<%#= image_tag "test4.jpg" %></div>
+    <div>5<%#= image_tag "test5.jpg" %></div>
+  </div>
+</div>

@@ -25,7 +25,6 @@
   <h1>MENU</h1>
   <ul><!--ヘッダーリンク先-->
     <% if user_signed_in? %>
-    <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "link-decoration" %></li>
       <div class="toggle_wrap">
         <div class="toggle_switch">
         <p>Items</p>
@@ -44,10 +43,20 @@
         </div>
       </div>
     </li>
+    <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "link-decoration" %></li>
     <% else %>
-    <li><%= link_to "口コミ会員登録", new_user_registration_path, class: "link-decoration" %></li>
-    <li><%= link_to "口コミ会員ログイン", new_user_session_path, class: "link-decoration" %></li>
-    <li><%= link_to "商品一覧", user_items_path, class: "link-decoration" %></li>
+    <div class="toggle_wrap">
+      <div class="toggle_switch">
+        <p>コメントする</p>
+      </div>
+      <div class="toggle_contents">
+        <ul>
+          <li><%= link_to "口コミ会員登録", new_user_registration_path, class: "link-decoration" %></li>
+          <li><%= link_to "口コミ会員ログイン", new_user_session_path, class: "link-decoration" %></li>
+        </ul>
+      </div>
+    </div>
+    <li><%= link_to "商品を探す", user_items_path, class: "link-decoration" %></li>
   <% end %>
   </ul>
 </div>

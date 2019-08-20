@@ -1,4 +1,5 @@
 class Maker::AdressesController < ApplicationController
+	before_action :authenticate_maker!
 	def new
 		@adress = Adress.new
 	end
