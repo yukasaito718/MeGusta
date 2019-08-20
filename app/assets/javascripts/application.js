@@ -13,10 +13,11 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
-//= require turbolinks
+//@import "slick-theme";
+//@import "slick";
 // @ app/assets/javascripts/application.js
-//= require_tree .
 //= require bootstrap-sprockets
+//= require_tree .
 
 //スライドショー
 $(window).on('turbolinks:load', function(){
@@ -60,7 +61,7 @@ $(function() {
     $('#sp-menu').fadeToggle();
     return false;
   });
-  
+
  $('.toggle_switch').on('click',function(){
   $(this).toggleClass('open');
   $(this).next('.toggle_contents').slideToggle();

@@ -25,7 +25,7 @@ class Item < ApplicationRecord
 				results += Item.search_for_maker(keyword) unless Item.search_for_maker(keyword).nil?#nilなら前者の記述を返す　nilのエラーの条件分岐
 		end
 			results.uniq#検索結果の重複を取り除く
-		else
+		else#空で検索した場合全商品が表示される
 			all
 		end
 	end
@@ -42,7 +42,7 @@ class Item < ApplicationRecord
 		end
 		results
 	end
-		def self.search_for_maker(keyword)#classメソッド（ショップ名からアイテムを見つけ出す）
+		def self.search_for_maker(keyword)#メーカー名からアイテムを見つけ出すクラスメソッド
 		results = []
 		makers = Maker.where('name like ?', "%#{keyword}%")
 		makers.each do |maker|

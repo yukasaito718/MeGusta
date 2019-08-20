@@ -11,10 +11,6 @@
   </div>
   <% else %>
 <% end %>
-
-<div id="sp-menu">
-  <h1>MENU</h1>
-  <ul><!--ヘッダーリンク先-->
       <!--   検索フォーム -->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <div class="inner">
@@ -24,9 +20,12 @@
   <% end %>
   <a href="#" class="search-btn"><i class="fa fa-search"></i></a><!--虫眼鏡アイコン -->
   </div>
+
+<div id="sp-menu">
+  <h1>MENU</h1>
+  <ul><!--ヘッダーリンク先-->
     <% if user_signed_in? %>
     <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "link-decoration" %></li>
-    <li>
       <div class="toggle_wrap">
         <div class="toggle_switch">
         <p>Items</p>
@@ -35,7 +34,6 @@
         <%= link_to "All Items", user_items_path, class: "link-decoration" %>
         </div>
       </div>
-    </li>
     <li>
       <div class="toggle_wrap">
         <div class="toggle_switch">
@@ -54,7 +52,7 @@
   </ul>
 </div>
 <div id="hm-icon">
-  <a class="menu-trigger" href="#">
+  <a class="menu-trigger" href="">
   <span></span>
   <span></span>
   <span></span>

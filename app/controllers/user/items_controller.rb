@@ -6,6 +6,7 @@ class User::ItemsController < ApplicationController
 		else
 			keywords = ""
 		end
+		#カテゴリーIDが渡ってきたら紐づいたitem_idを取り出す
 		@items = if params[:category_id]
 					Category.find(params[:category_id]).items
 				 else

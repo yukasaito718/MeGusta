@@ -17,8 +17,8 @@
     @import "bootstrap";
     @import " font-awesome ";
 
-//マイページ編集画面
-.main {
+/*//マイページ編集画面
+*/.main {
 	width: 100%;
 	margin: 0 auto;
 }
@@ -39,7 +39,7 @@
 	font-family:"Meiryo",sans-serif;
 }
 
-//検索フォーム
+/*//検索フォーム*/
 * {
   box-sizing: border-box;
 }
@@ -105,10 +105,10 @@ input[type="text"]:focus {
   width: 300px;
 }
 
-//スライドショー
-.skipper_size {
-   height: 200px;
-   width: 200px;
+/*//スライドショー
+*/.skipper_size {
+   height: 400px;
+   width: 400px;
 }
 .image1{
    background-image: url(test1.jpg);
@@ -126,12 +126,12 @@ input[type="text"]:focus {
    background-image: url(test5.jpg);
 }
 
-//ハンバーガー
-#hm-icon{
+/*//ハンバーガー*/
+  #hm-icon{
   position: fixed;
   right: 20px;
   top: 20px;
-  z-index: 10;
+  z-index: 1001;
 }
  
 .menu-trigger,
@@ -154,6 +154,7 @@ input[type="text"]:focus {
   height: 4px;
   background-color: #000;
   border-radius: 4px;
+  z-index: 1001;
 }
  
 .menu-trigger span:nth-of-type(1) {
@@ -172,6 +173,7 @@ input[type="text"]:focus {
   -webkit-transform: translateY(20px) rotate(-45deg);
   transform: translateY(20px) rotate(-45deg);
   background-color: #fff;
+  z-index: 1001;
 }
  
 .menu-trigger.active span:nth-of-type(2) {
@@ -179,32 +181,35 @@ input[type="text"]:focus {
 }
  
 .menu-trigger.active span:nth-of-type(3) {
-  -webkit-transform: translateY(-20px) rotate(45deg);
+-webkit-transform: translateY(-20px) rotate(45deg);
   transform: translateY(-20px) rotate(45deg);
-　background-color: #fff;
+background-color: #fff;
+  z-index: 1001;
 }
  
  
 /* ------------------------ */
-/* ------ spメニュー ------ */
+/* -- ハンバーガースライドメニュー ---*/
 /* ------------------------ */
  
  
+/*  背景部分　position: fixed;⇒top:;とright:;で位置を指定,z-indexで最背面に設置*/
 #sp-menu {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   background: #000;
   color: #fff;
-  width: 100%;
+  width: 40%;
   min-height: 100%;
   display: none;
-  z-index: 9;
+  z-index: 1000;
+  text-align: center;
 }
  
 #sp-menu li{
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   list-style: none;
 }
  
@@ -214,8 +219,9 @@ input[type="text"]:focus {
   font-weight: bold;
 }
 
-//アコーディオンメニュー
-.toggle_wrap:last-of-type {
+/*//アコーディオンメニュー
+*/
+  .toggle_wrap:last-of-type {
   border-bottom: 1px solid gray;
 }
 .toggle_switch {
