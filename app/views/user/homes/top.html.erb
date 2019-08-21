@@ -5,12 +5,31 @@
   <p class="text-font notice"><%= flash[:notice] %></p>
 <% end %>
 <!-- スライドショー-->
- <div class="slider-container">
-  <div class="slider">
-    <div>1<%#= image_tag "test1.jpg" %></div>
-    <div>2<%#= image_tag "test2.jpg" %></div>
-    <div>3<%#= image_tag "test3.jpg" %></div>
-    <div>4<%#= image_tag "test4.jpg" %></div>
-    <div>5<%#= image_tag "test5.jpg" %></div>
-  </div>
+<div id="sampleCarousel" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li class="active" data-target="#sampleCarousel" data-slide-to="0"></li>
+		<li data-target="#sampleCarousel" data-slide-to="1"></li>
+		<li data-target="#sampleCarousel" data-slide-to="2"></li>
+	</ol>
+	<div class="carousel-inner" role="listbox">
+		<div class="item active">
+			<%= image_tag "test1.jpg" %>
+		</div>
+		<div class="item">
+			<%= image_tag "test2.jpg" %>
+		</div>
+		<div class="item">
+			<%= image_tag "test3.jpg" %>
+		</div>
+	</div>
+	<a class="left carousel-control" href="#sampleCarousel" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">前へ</span>
+	</a>
+	<a class="right carousel-control" href="#sampleCarousel" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">次へ</span>
+	</a>
 </div>
+
+<%= render 'layouts/user_sidebar', categories: @categories %>
