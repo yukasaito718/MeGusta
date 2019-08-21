@@ -71,3 +71,4 @@ gem 'acts-as-taggable-on'
 gem "pry-rails"
 gem "font-awesome-rails"
 gem "jquery-slick-rails"
+gem 'counter_culture'

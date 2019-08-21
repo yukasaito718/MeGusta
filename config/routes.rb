@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'favorites/create'
-  get 'favorites/destroy'
   devise_for :makers, controllers: {
     sessions:      'makers/sessions',
     passwords:     'makers/passwords',
@@ -20,34 +18,38 @@ Rails.application.routes.draw do
   }
 
   namespace :maker do
-    resources :shops, only: [:index, :show, :new, :edit, :create, :update, :destroy]
-    resources :makers, only: [:index, :show, :new, :edit, :create, :update, :destroy]
-    resources :items, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+    resources :shops
+    resources :makers
+    resources :items
   end
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
-    resources :items, only: [:index, :show, :new, :edit, :create, :update, :destroy]
-    resources :makers, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-    resources :shops, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+    resources :items
+    resources :makers
+    resources :shops
+    resources :categories
   end
 
-  namespace :user do
+  scope module: :user do
     resources :shops, only: [:index, :show]
     resources :makers, only: [:index, :show]
+
     resources :categories, only: [:index] do
       resources :items, only: [:index]
     end
+
     resources :items, only: [:index, :show] do
       resources :comments
+      post '/favorites' =>'favorites#create', as: :favorites
+      delete '/favorites' => 'favorites#destroy', as: :favorite
     end
+
     resources :users, only: [:create, :destroy]
     patch 'users/:id' => 'users#update'
     get "/mypage" => 'users#show'
     get "/users/:id/edit" => 'users#edit', as: 'user_edit'
   end
-
-  resources :favorites, only: [:create, :destroy]
 
   # namespaceに属さないルーティング
   # get '/admin' => 'admin/homes#top'

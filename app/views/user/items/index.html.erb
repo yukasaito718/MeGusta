@@ -13,14 +13,16 @@
 
 	<div class="item-box">
 		<% @items.each do |item| %>
-		<%= link_to user_item_path(item.id) do %>
+		<%= link_to item_path(item.id) do %>
 		<div class="item-contents">
 			<%= attachment_image_tag item, :image,  size: "200x200", fallback: "no_image.jpg", class:"item-contents-picture" %>
 		<% end %>
 			<br>
 			<%= item.item_name %><br>
 			<%= item.price %>円（税別）<br>
-			<div id="item-<%= item.id%>"><%= render "favorites/favorite", item: item %></div>
+			<!-- <div id="item-<%= item.id%>"> -->
+			<%= render "user/favorites/favorite", item: item %>
+			<!-- </div> -->
 		</div>
 	</div>
 	<% end %>

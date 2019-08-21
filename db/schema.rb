@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_045023) do
+ActiveRecord::Schema.define(version: 2019_08_21_082032) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_08_17_045023) do
     t.integer "maker_id"
     t.text "freshness_date"
     t.text "introduction"
+    t.integer "favorites_count", default: 0, null: false
   end
 
   create_table "makers", force: :cascade do |t|

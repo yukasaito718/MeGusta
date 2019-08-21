@@ -3,7 +3,7 @@
 
 <header>
   <%= link_to root_path do%>
-  <p>MeGusta</p>
+  <h1>Me Gusta</h1>
   <% end %>
 <% if user_signed_in? %>
   <div class="welcome-text">
@@ -14,7 +14,7 @@
       <!--   検索フォーム -->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <div class="inner">
-  <%= form_tag user_items_path,id:"searchform", method: :get do %>
+  <%= form_tag items_path,id:"searchform", method: :get do %>
   <%= text_field_tag :keywords, '',{class:'search',id:'text',type:'text',placeholder:'検索キーワード'} %>
   <%= submit_tag '' ,id:"submit", :item_name => nil %>
   <% end %>
@@ -30,7 +30,7 @@
         <p>Items</p>
         </div>
         <div class="toggle_contents">
-        <%= link_to "All Items", user_items_path, class: "link-decoration" %>
+        <%= link_to "All Items", items_path, class: "link-decoration" %>
         </div>
       </div>
     <li>
@@ -39,7 +39,7 @@
         <p>マイページ</p>
         </div>
         <div class="toggle_contents">
-            <%= link_to "My Page", user_mypage_path, class: "link-decoration" %>
+            <%= link_to "My Page", mypage_path, class: "link-decoration" %>
         </div>
       </div>
     </li>
@@ -56,7 +56,7 @@
         </ul>
       </div>
     </div>
-    <li><%= link_to "商品を探す", user_items_path, class: "link-decoration" %></li>
+    <li><%= link_to "商品を探す", items_path, class: "link-decoration" %></li>
   <% end %>
   </ul>
 </div>
