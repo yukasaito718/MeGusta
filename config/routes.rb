@@ -51,18 +51,11 @@ Rails.application.routes.draw do
     get "/users/:id/edit" => 'users#edit', as: 'user_edit'
   end
 
-  # namespaceに属さないルーティング
-  # get '/admin' => 'admin/homes#top'
-  # get '/mypage', to: 'user/users#show'
-  # get '/mypage/edit', to: 'user/users#edit'
-  # patch '/user', to: 'user/users#update'
-  # post '/user' , to: 'user/users#create'
-
  	# ユーザーのトップページ・マイページshow,editのルーティング
   root "user/homes#top"
   post '/user' => 'user/users#create'
   # メーカーのトップページ・マイページshow,editのルーティング
-  get '/maker' => "maker/homes#top"
+  get '/maker' => "maker/homes#top", as: 'maker_top'
   get "/makerpage" => 'maker/makers#show'
   get "/makerpage/edit" => 'maker/makers#edit'
   patch '/maker' => 'maker/makers#update'

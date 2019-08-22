@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
 		if resource.is_a?(Admin)#adminのmodel名
 	  		admin_path
 		elsif resource.is_a?(Maker)#Makerのmodel名
-			maker_path
+			maker_top_path
 		else
 			root_path
-    	end
-  	end
+    end
+  end
 
 	def after_sign_out_path_for(resource_or_scope)
     	if resource_or_scope == :user #userのモデル名
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     	else
       		new_admin_session_path
     	end
-  	end
+  end
 
 	protected#ストロングパラメータ
 

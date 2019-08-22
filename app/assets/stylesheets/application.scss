@@ -18,12 +18,65 @@
     @import "font-awesome";
     @import "slick";
     /*@import "slick-theme";*/
+/*common*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/*font
+*/
+.text-font1 {
+  font-family: "Objective","游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",sans-serif;
+}
 
+body {
+  margin: 0 auto;
+}
+/*ヘッダー
+*/
+header {
+  width: 90%;
+  height:150px;
+}
+.TopIcon {
+  font-size: 50px;
+  position: fixed;
+  top:0;
+  left:0;
+}
+.header-link {
+  width: 100;
+  margin: 0 auto;
+  position: relative;
+}
+.header-text {
+  margin:0 auto;
+  width: 60%;
+  list-style: none;
+}
 
+.link-list{
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+.list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+
+}
 /*//マイページ編集画面
 */.main {
 	width: 100%;
 	margin: 0 auto;
+
 }
 
 .profile-text {
@@ -43,18 +96,22 @@
 }
 
 /*//検索フォーム*/
-* {
-  box-sizing: border-box;
-}
 
+.search-content-box {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top:100px;
+  right: 10px;
+}
 .inner {
   height: 44px;
-  margin: right;
   width: 30px;
+  position: relative;
 }
 
 .search-btn {
-  background: #F27398;
+  background: #000;
   border-radius: 50%;
   border:#000;
   display: inline-block;
@@ -107,8 +164,8 @@ input[type="text"]:focus {
   opacity: 1;
   width: 300px;
 }
-/*//ハンバーガー*/
-  #hm-icon{
+/*//ハンバーガー
+*/  #hm-icon{
   position: fixed;
   right: 20px;
   top: 20px;
@@ -244,9 +301,11 @@ background-color: #fff;
 .top-photo {
   margin: 0 auto;
   background-image: url(test2.jpg);
-  width: 90%;
+  width: 80%;
   height: 500px;
   background-size: cover;
   background-position: center;
 }
-/*スライドショー*/
+
+
+

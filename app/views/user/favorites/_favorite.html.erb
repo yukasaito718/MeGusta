@@ -4,7 +4,6 @@
 <span class="like">
   <div id="item-<%= item.id %>">
     <% if item.iine?(current_user) %>
-      
       <%= form_for([item, Favorite.find_by(item: item.id, user_id: current_user.id)], method: :delete, remote: true) do |f| %>
         <%= button_tag(class: "btn btn-default btn-xs") do %>
           <%= content_tag :span, "#{item.favorites_count}", class: "glyphicon glyphicon-heart" ,style:"color: red;"%>

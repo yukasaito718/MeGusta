@@ -14,7 +14,6 @@ class User::ItemsController < ApplicationController
 				 end
 		@categories = Category.all
 	end
-
 	def show
 		@item = Item.find(params[:id])
 		@comment = Comment.new

@@ -2,12 +2,34 @@
 
 <!-- メッセージの表示 -->
 <% if flash[:notice] %>
-  <p class="text-font notice"><%= flash[:notice] %></p>
+  <p class="text-font1 notice"><%= flash[:notice] %></p>
 <% end %>
 <div class="top-box">
-	<div class ="top-photo">
+	<div class ="top-photo wow fadeInLeft">
 	</div>
 </div>
+<div class ="rank-box">
+	<% @all_ranks.each.with_index(1) do |all_rank,i| %>
+	<div class ="rank-textbox">
+		<br>
+		<%= i %>
+		<%= all_rank.item_name %><br>
+		<%= all_rank.price %><br>
+	</div>
+</div>
+	<% end %>
+<div class ="rank-box">
+	<% @all_ranks.each.with_index(1) do |all_rank,i| %>
+	<div class ="rank-textbox">
+		<br>
+		<%= i %>
+		<%= all_rank.item_name %><br>
+		<%= all_rank.price %><br>
+	</div>
+</div>
+	<% end %>
+
+
 <!-- スライドショー-->
 <!-- <div id="sampleCarousel" class="carousel slide" data-ride="carousel" data-pause="hover">
 	<ol class="carousel-indicators">

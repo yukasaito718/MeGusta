@@ -10,31 +10,31 @@
         <%= form_for [@item], url:maker_items_path do |f| %>
         <div class="field">
           <div class="row">
-            <label>商品名</label><br>
+            <h3>商品名</h3><br>
             <div class="col-xs-8">
             <%= f.text_field :item_name, class:'form-control', :placeholder => "商品名を入力 " %>
             </div>
           </div>
 	        <div class="row">
-	            <label >販売価格</label><br>
+	            <h3>販売価格</h3><br>
 	            <div class="col-xs-6">
 	            <%= f.text_field :price, class:'form-control', :placeholder => "※半角数字　税抜価格" %>
 	            </div>
 	        </div>
 	        <div class="row">
-	            <label >内容量</label><br>
+	            <h3>内容量</h3><br>
 	            <div class="col-xs-6">
 	            <%= f.text_field :count, class:'form-control', :placeholder => "※例：12個入り　など" %>
 	            </div>
 	        </div>
           <div class="row">
-              <label >賞味期限</label><br>
+              <h3>賞味期限</h3><br>
               <div class="col-xs-6">
               <%= f.text_field :freshness_date, class:'form-control', :placeholder => "※例：１週間・３日　など" %>
               </div>
           </div>
 
-            <label >販売ステータス</label><br>
+            <h3>販売ステータス</h3><br>
             <div>
               <div class="radio">
                 <%= f.radio_button :is_sold, 'true', { id:"radio-1", type:"radio", checked: true}%>
@@ -45,7 +45,7 @@
                 <label for="radio-2" class="radio-label">販売中止</label>
               </div>
             </div>
-            <label >保存方法</label><br>
+            <h3>保存方法</h3><br>
             <div>
               <div class="radio">
                 <%= f.radio_button :is_refrigeration, 'true', { id:"radio-1", type:"radio", checked: true}%>
@@ -69,12 +69,24 @@
             </div>
             <label >画像</label><br>
               <%= f.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
-            <label >カテゴリ</label><br>
+
+              <label >カテゴリー選択</label><br>
                 <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-                  <%= category.label do %>
-                    <%= category.check_box %>
-                    <%= category.text %>
-                  <% end %>
+                  <%= category.label {category.check_box + category.text} %>
+                <% end %>
+            <label >カテゴリ選択</label><br>
+                <%# f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+                  <%# category.label do %>
+                    <%# category.check_box %>
+                    <%# category.text %>
+                  <%# end %>
+                <%# end %>
+              <label >取扱店舗選択</label><br>
+                <%= f.collection_check_boxes(:shop_ids, Shop.all, :id, :name) do |shop| %>
+                  <%= shop.label {shop.check_box + shop.text} %>
+<!--                       <%= shop.check_box %>
+                      <%= shop.text %>
+                  <%# end %> -->
                 <% end %>
           </div>
 

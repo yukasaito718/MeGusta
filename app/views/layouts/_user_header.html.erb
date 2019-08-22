@@ -1,77 +1,90 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width">
 
-<header>
-  <%= link_to root_path do%>
-  <h1>Me Gusta</h1>
-  <% end %>
-<% if user_signed_in? %>
-  <div class="welcome-text">
-    Ora! <%= current_user.name %>さん
+<main class="clearfix">
+  <header class="clearfix">
+  <!--   サイトタイトル-->
+  <div>
+     <%= link_to root_path do%>
+        <span class="TopIcon">M</span>
+     <% end %>
   </div>
-  <% else %>
-<% end %>
-      <!--   検索フォーム -->
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-  <div class="inner">
-  <%= form_tag items_path,id:"searchform", method: :get do %>
-  <%= text_field_tag :keywords, '',{class:'search',id:'text',type:'text',placeholder:'検索キーワード'} %>
-  <%= submit_tag '' ,id:"submit", :item_name => nil %>
-  <% end %>
-  <a href="#" class="search-btn"><i class="fa fa-search"></i></a><!--虫眼鏡アイコン -->
-  </div>
-
-<div id="sp-menu">
-  <h1>MENU</h1>
-  <ul><!--ヘッダーリンク先-->
-    <% if user_signed_in? %>
-      <div class="toggle_wrap">
-        <div class="toggle_switch">
-        <p>Items</p>
-        </div>
-        <div class="toggle_contents">
-        <%= link_to "All Items", items_path, class: "link-decoration" %>
-        </div>
-      </div>
-    <li>
-      <div class="toggle_wrap">
-        <div class="toggle_switch">
-        <p>マイページ</p>
-        </div>
-        <div class="toggle_contents">
-            <%= link_to "My Page", mypage_path, class: "link-decoration" %>
+    <div class =header-link >
+      <div class="header-list">
+        <ul class="link-list">
+          <li class="list-item">
+            <span>ABOUT</span>
+          </li>
+          <li class="list-item">
+            <span>ITEMS</span>
+          </li>
+          <li class="list-item">
+            <span>TAGS</span>
+          </li>
+          <li class="list-item">
+            <span>ENTORY</span>
+          </li>
+        </ul>
+              <!--   検索フォーム -->
+        <div class="search-content-box">
+          <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+          <div class="inner">
+          <%= form_tag items_path,id:"searchform", method: :get do %>
+          <%= text_field_tag :keywords, '',{class:'search',id:'text',type:'text',placeholder:'検索キーワード'} %>
+          <%= submit_tag '' ,id:"submit", :item_name => nil %>
+          <% end %>
+          <a href="#" class="search-btn"><i class="fa fa-search search-color"></i></a><!--虫眼鏡アイコン -->
+          </div>
         </div>
       </div>
-    </li>
-    <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "link-decoration" %></li>
-    <% else %>
-    <div class="toggle_wrap">
-      <div class="toggle_switch">
-        <p>コメントする</p>
-      </div>
-      <div class="toggle_contents">
-        <ul>
-          <li><%= link_to "口コミ会員登録", new_user_registration_path, class: "link-decoration" %></li>
-          <li><%= link_to "口コミ会員ログイン", new_user_session_path, class: "link-decoration" %></li>
+<!-- ハンバーガーメニュー -->
+      <div id="sp-menu">
+        <h1>MENU</h1>
+        <ul><!--ヘッダーリンク先-->
+          <% if user_signed_in? %>
+            <div class="welcome-text">
+              Login User：<%= current_user.name %>
+            </div>
+            <div class="toggle_wrap">
+              <div class="toggle_switch">
+              <p>Items</p>
+              </div>
+              <div class="toggle_contents">
+              <%= link_to "All Items", items_path, class: "link-decoration" %>
+              </div>
+            </div>
+          <li>
+            <div class="toggle_wrap">
+              <div class="toggle_switch">
+              <p>MY PAGE</p>
+              </div>
+            </div>
+          </li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "link-decoration" %></li>
+          <% else %>
+          <div class="toggle_wrap">
+            <div class="toggle_switch">
+              <p>コメントする</p>
+            </div>
+            <div class="toggle_contents">
+              <ul>
+                <li><%= link_to "口コミ会員登録", new_user_registration_path, class: "link-decoration" %></li>
+                <li><%= link_to "口コミ会員ログイン", new_user_session_path, class: "link-decoration" %></li>
+              </ul>
+            </div>
+          </div>
+          <li><%= link_to "商品を探す", items_path, class: "link-decoration" %></li>
+        <% end %>
         </ul>
       </div>
+    <div id="hm-icon">
+      <a class="menu-trigger" href="">
+      <span></span>
+      <span></span>
+      <span></span>
+      </a>
     </div>
-    <li><%= link_to "商品を探す", items_path, class: "link-decoration" %></li>
-  <% end %>
-  </ul>
-</div>
-<div id="hm-icon">
-  <a class="menu-trigger" href="">
-  <span></span>
-  <span></span>
-  <span></span>
-  </a>
-</div>
-
-
-
-
-
-
+  </div>
 </header>
 
+</main>

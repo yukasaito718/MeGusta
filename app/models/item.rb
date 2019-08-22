@@ -1,12 +1,18 @@
 class Item < ApplicationRecord
-	has_many :comments
-	has_many :favorites, dependent: :destroy
 	belongs_to :maker
 	attachment :image
+	#categoty
 	has_many :item_category_relations
 	has_many :categories, through: :item_category_relations
+	#いいね
+	has_many :favorites, dependent: :destroy
 	has_many :iine_users, through: :favorites, source: :user
+	#comment
+	has_many :comments
 	has_many :users, through: :comments
+	#shop
+	has_many :shop_items
+	has_many :shops, through: :shop_items
 
 
 	#現在のユーザーがいいねしてたらtrueを返す

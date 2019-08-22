@@ -1,0 +1,63 @@
+<main class="clearfix">
+  <div class="profile-text">
+    <div class ="row">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-7">
+      <h2>店舗登録フォーム</h2>
+      </div>
+    </div>
+	<%= form_for [@shop], url:maker_shops_path do |f| %>
+            <div class="form-inline">
+              <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-6">
+                  <h3>店舗名 </h3>
+                  <%= f.text_field :name, class:'form-control', placeholder:"※全角" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-6">
+                  <h3>店舗名　フリガナ </h3>
+                  <%= f.text_field :name_hurigana, class:'form-control', placeholder:"セイ　※全角カタカナ" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-6">
+                  <h3>郵便番号</h3>
+                  <%= f.text_field :postal_code, class:'form-control', placeholder:"※半角　ハイフンなし" %>
+                </div>
+              </div>
+            </div>
+              <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-7">
+                  <h3>住所</h3>
+                  <%= f.text_field :street_address, class:'form-control', placeholder:"住所を入力" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-3">
+                  <h3>電話番号</h3>
+                  <%= f.text_field :phone_number, class:'form-control', placeholder:"※半角　ハイフンなし" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-7">
+                  <div class="actions">
+                  <%= f.submit "登録", class: "btn btn-primary btn-lg btn-block" %>
+                  </div>
+                </div>
+              </div>
+    <% end %>
+  </div>
+
+</main>
