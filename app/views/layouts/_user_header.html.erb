@@ -11,18 +11,26 @@
   </div>
     <div class =header-link >
       <div class="header-list">
-        <ul class="link-list">
+        <ul class="link-list toggle_wrap">
           <li class="list-item">
             <span>ABOUT</span>
           </li>
           <li class="list-item">
+            <%= link_to items_path, class: "link-decoration" do %>
             <span>ITEMS</span>
+            <% end %>
           </li>
-          <li class="list-item">
+          <li class="list-item toggle_wrap">
             <span>TAGS</span>
           </li>
-          <li class="list-item">
-            <span>ENTORY</span>
+          <li class="list-item ">
+            <span class="toggle_wrap">ENTORY</span>
+              <ul class="toggle_switch">
+                <li class ="toggle_contents">
+                  <span><%= link_to "口コミ会員登録", new_user_registration_path, class: "link-decoration" %></span>
+                  </li>
+                <li><%= link_to "口コミ会員ログイン", new_user_session_path, class: "link-decoration" %></li>
+              </ul>
           </li>
         </ul>
               <!--   検索フォーム -->

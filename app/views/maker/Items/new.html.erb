@@ -69,20 +69,13 @@
             </div>
             <label >画像</label><br>
               <%= f.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
-            <%# f.fields_for :categories do |category| %>
-              <%# image_tag(category.object.content) %>
-
-<!--               <label >カテゴリー選択</label><br>
-                <%# f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-                  <%# category.label {category.check_box + category.text} %>
-                <%# end %> -->
-            <label >カテゴリ選択</label><br>
-                <%# f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-                  <%# category.label do %>
-                    <%# category.check_box %>
-                    <%# category.text %>
-                  <%# end %>
-                <%# end %>
+            <label >カテゴリ</label><br>
+                <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+                  <%= category.label do %>
+                    <%= category.check_box %>
+                    <%= category.text %>
+                  <% end %>
+                <% end %>
               <label >取扱店舗選択</label><br>
                 <%= f.collection_check_boxes(:shop_ids, Shop.all, :id, :name) do |shop| %>
                   <%= shop.label {shop.check_box + shop.text} %>

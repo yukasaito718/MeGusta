@@ -101,8 +101,8 @@ header {
   width: 50px;
   height: 50px;
   position: fixed;
-  top:100px;
-  right: 10px;
+  top:10px;
+  right: 100px;
 }
 .inner {
   height: 44px;
@@ -260,7 +260,6 @@ background-color: #fff;
 /*//アコーディオンメニュー
 */
   .toggle_wrap:last-of-type {
-  border-bottom: 1px solid gray;
 }
 .toggle_switch {
   position: relative;
@@ -308,4 +307,70 @@ background-color: #fff;
 }
 
 
+.item-contents{
+  float:left
+}
+.space {
+  margin:5px;
+}
+.item_fontsize{
+  font-size: 1px;
+}
 
+/*商品一覧*/
+.msr_box01 {
+  background-color: #fff;
+  width: 230px;
+  display: inline-block;
+}
+.msr_box01 .style{
+  width:250px;
+  background-color: #FFFFFF;
+  border: 1px solid #B9B9B9;
+  box-sizing: border-box;
+  color:#000000;
+  display:block;
+  padding: 8px;
+  transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+}
+.msr_box01 img{
+  margin:0 0 5px;
+}
+.msr_box01 .ttl {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.msr_box01 p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.msr_box01 .style:hover{
+  opacity: 0.8;
+  box-shadow: 0 -25px 0px #EFEFEF inset;
+  border-radius: 10px;
+  background: #F9F9F9;
+  line-height: 2;
+  border: 1px solid #EFEFEF;
+}
+.item-contents-picture{
+  border-radius: 50px;
+  padding: 5px
+}
+.items{
+  width: 80%;
+  margin: 0 auto;
+}
+/*ランキング*/
+.rank-box{
+  width: 80%;
+}
+.rank-textbox {
+  float: left;
+}
+
+a {
+color:#808080;
+}

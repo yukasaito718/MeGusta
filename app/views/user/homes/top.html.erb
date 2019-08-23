@@ -11,23 +11,12 @@
 <div class ="rank-box">
 	<% @all_ranks.each.with_index(1) do |all_rank,i| %>
 	<div class ="rank-textbox">
-		<br>
-		<%= i %>
-		<%= all_rank.item_name %><br>
-		<%= all_rank.price %><br>
+		<%= i %><br>
+		<%= attachment_image_tag all_rank, :image,  size: "200x200", fallback: "no_image.jpg", class:"item-contents-picture"%><br>
+		<%= all_rank.item_name %>
 	</div>
-</div>
 	<% end %>
-<div class ="rank-box">
-	<% @all_ranks.each.with_index(1) do |all_rank,i| %>
-	<div class ="rank-textbox">
-		<br>
-		<%= i %>
-		<%= all_rank.item_name %><br>
-		<%= all_rank.price %><br>
-	</div>
 </div>
-	<% end %>
 
 
 <!-- スライドショー-->

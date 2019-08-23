@@ -10,25 +10,24 @@
 						<p class="text-font notice"><%= flash[:notice] %></p>
 					<% end %>
 					<div class="user-link-btn">
-						<h2>商品詳細内容
-							<span class="btn"><%# link_to "アドレス帳", user_addresses_path, class: "btn btn-success" %></span>
-							<span class="btn"><%# link_to "購入履歴", user_orders_path, class: "btn btn-success" %></span>
-						</h2>
+						<h2>商品詳細内容</h2>
 					</div>
 					<!-- 商品詳細内容 -->
 					<div class="user-profile-text panel panel-primary box-shadow">
 						<div class="text">
-							<div class="space"><%= attachment_image_tag @item, :image,  size: "100x100", fallback: "no_image.jpg", class:"item-contents-picture"%></div>
-							<h3>商品名</h3>
+							<div class="space"><%= attachment_image_tag @item, :image,  size: "500x500", fallback: "no_image.jpg", class:"item-contents-picture"%></div>
+							<h3 class="item_fontsize">商品名</h3>
 							<div class="space"><%= @item.item_name %></div>
-							<h3>価格</h3>
+							<h3 class="item_fontsize">商品説明</h3>
+							<div class="space"><%= @item.introduction %></div>
+							<h3 class="item_fontsize">価格</h3>
 							<div class="space"><%= @item.price %></div>
-							<h3>内容個数</h3>
+							<h3 class="item_fontsize">内容個数</h3>
 							<div class="space"><%= @item.count %></div>
-							<h3>賞味期限</h3>
+							<h3 class="item_fontsize">賞味期限</h3>
 							<div class="space"><%= @item.freshness_date %></div>
 							<div class="space">
-								<h3>販売ステータス</h3>
+								<h3 class="item_fontsize">販売ステータス</h3>
 								<% if @item.is_sold %>
 								<b><font color="#008000">取り扱い中</font></b>
 								<% else %>
@@ -36,7 +35,7 @@
 								<% end %>
 							</div>
 							<div class="space">
-								<h3>保存方法</h3>
+								<h3 class="item_fontsize">保存方法</h3>
 								<% if @item.is_refrigeration %>
 								<b><font color="#008000">常温保存</font></b>
 								<% else %>
@@ -44,7 +43,7 @@
 								<% end %>
 							</div>
 							<div class="space">
-								<h3>個装</h3>
+								<h3 class="item_fontsize">個装</h3>
 								<% if @item.is_packaged %>
 								<b><font color="#008000">あり</font></b>
 								<% else %>
@@ -58,23 +57,23 @@
 							</div>
 						</div>
 						<div class="user-pofile-btn">
-							<%= link_to "戻る", root_path, class: "btn btn-default" %>
+							<%= render "user/favorites/favorite", item: @item %>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-3"></div>
+				<div class ="user-profile-text panel panel-primary col-md-6 text-font">
+					<h4>レビューコメント</h4>
+				    <div id="comments_area"><!-- #① -->
+				      <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+				      <%= render partial: 'user/comments/index', locals: { comments: @comments } %>
+				    </div>
+				    <% if user_signed_in? %>
+				      <!-- コメント入力欄をの詳細ページに表示するためのrender -->
+				      <%= render partial: 'user/comments/form', locals: { comment: @comment, item: @item } %>
+				    <% end %>
+	  			</div>
 			</div>
 		</div>
 	</main>
-	  <div>
-    <h4>コメント</h4>
-    <div id="comments_area"><!-- #① -->
-      <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-      <%= render partial: 'user/comments/index', locals: { comments: @comments } %>
-    </div>
-    <% if user_signed_in? %>
-      <!-- コメント入力欄をの詳細ページに表示するためのrender -->
-      <%= render partial: 'user/comments/form', locals: { comment: @comment, item: @item } %>
-    <% end %>
-  </div>
 </body>
