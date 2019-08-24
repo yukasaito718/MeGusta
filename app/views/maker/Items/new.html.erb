@@ -15,6 +15,12 @@
             <%= f.text_field :item_name, class:'form-control', :placeholder => "商品名を入力 " %>
             </div>
           </div>
+          <div class="row">
+            <h3>紹介文</h3><br>
+            <div class="col-xs-8">
+            <%= f.text_field :introduction, class:'form-control', :placeholder => "商品名を入力 " %>
+            </div>
+          </div>
 	        <div class="row">
 	            <h3>販売価格</h3><br>
 	            <div class="col-xs-6">
@@ -70,7 +76,7 @@
             <label >画像</label><br>
               <%= f.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
             <label >カテゴリ</label><br>
-                <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+                <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, include_hidden: false) do |category| %>
                   <%= category.label do %>
                     <%= category.check_box %>
                     <%= category.text %>

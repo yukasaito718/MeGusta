@@ -6,12 +6,16 @@ class User::CommentsController < ApplicationController
 		@comment.user_id = current_user.id
 		if @comment.save
 		render :index
+		else
+		render :index
 		end
 	end
 	def destroy
 	    @comment = Comment.find(params[:id]) #⑤
 	    if @comment.destroy
-	      render :index #⑥
+	     	render :index #⑥
+	  	else
+	  		render :index
 	    end
   	end
 

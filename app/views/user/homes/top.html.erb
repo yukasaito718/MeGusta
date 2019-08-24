@@ -1,6 +1,20 @@
 
 
 <!-- メッセージの表示 -->
+
+<ul class="nav">
+	<ul>
+<li><a href="#">Home</a>
+</li>
+</ul>
+<li><a href="#">Strategy</a>
+<ul>
+<li><a href="#">b1</a></li>
+<li><a href="#">b1</a></li>
+</ul>
+</li>
+</ul>
+
 <% if flash[:notice] %>
   <p class="text-font1 notice"><%= flash[:notice] %></p>
 <% end %>
@@ -12,11 +26,12 @@
 	<% @all_ranks.each.with_index(1) do |all_rank,i| %>
 	<div class ="rank-textbox">
 		<%= i %><br>
-		<%= attachment_image_tag all_rank, :image,  size: "200x200", fallback: "no_image.jpg", class:"item-contents-picture"%><br>
+		<%= attachment_image_tag all_rank, :image,  size: "200x200", fallback: "no_image.jpg", class:"items-contents-picture"%><br>
 		<%= all_rank.item_name %>
 	</div>
 	<% end %>
 </div>
+
 
 
 <!-- スライドショー-->

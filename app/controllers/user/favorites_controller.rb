@@ -8,7 +8,6 @@ class User::FavoritesController < ApplicationController
 		@item.reload
 		# respond_to do |format|
 			# format.js
-		# end
 	end
 
 	def destroy

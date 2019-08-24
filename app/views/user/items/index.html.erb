@@ -3,6 +3,7 @@
 		<%= flash[:notice] %>
 		</div>
 	<% end %>
+
 <div class="items">
 	<% if params[:keywords].blank? %><!--もし検索ワードが空欄（スペース含む）ならタイトルだけ表示-->
 		<h1 class="addmin-item-index">Items</h1>
@@ -11,27 +12,20 @@
 		<p class="search-notice"><%= "「" + params[:keywords] + "」" + "に関連する商品一覧"%></p>
 	<% end %>
 
-		<% @items.each do |item| %>
+	<% @items.each do |item| %>
 		<div class="msr_box01">
-		<%= link_to item_path(item.id),id:"style" do %>
+			<%= link_to item_path(item.id),id:"style" do %>
 		<!-- <div class="item-contents"> -->
-			<%= attachment_image_tag item, :image,  size: "230x230", fallback: "no_image.jpg", class:"item-contents-picture" %>
+			<%= attachment_image_tag item, :image,  size: "230x230", fallback: "no_image.jpg", class:"items-contents-picture" %>
 			<h3 class="ttl"><%= item.item_name %></h3>
 			<p><%= item.maker.name %></p>
 			<!-- <div id="item-<%= item.id%>"> -->
-			<%= render "user/favorites/favorite", item: item %>
 			<!-- </div> -->
 
-<!-- <div class="msr_box01">
-  <a href="#">
-    <img src="/stylerecipe_img/dummy_img01.png" width="210" height="140" alt="img"/>
-    <h3 class="ttl">box</h3>
-    <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-  </a>
-</div> --><% end %>
-		</div>
 			<% end %>
+			<%= render "user/favorites/favorite", item: item %>
 
+		</div>
+	<% end %>
 </div>
-
 <%= render 'layouts/user_sidebar', categories: @categories %>

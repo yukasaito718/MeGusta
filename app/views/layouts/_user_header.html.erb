@@ -23,14 +23,14 @@
           <li class="list-item toggle_wrap">
             <span>TAGS</span>
           </li>
-          <li class="list-item ">
-            <span class="toggle_wrap">ENTORY</span>
-              <ul class="toggle_switch">
+          <li class="list-item toggle_wrap">
+            <span class="toggle_switch">ENTORY</span>
                 <li class ="toggle_contents">
                   <span><%= link_to "口コミ会員登録", new_user_registration_path, class: "link-decoration" %></span>
                   </li>
                 <li><%= link_to "口コミ会員ログイン", new_user_session_path, class: "link-decoration" %></li>
-              </ul>
+                <li><%= link_to "メーカー会員登録", new_user_registration_path, class: "link-decoration" %></li>
+                <li><%= link_to "メーカー会員登録", new_maker_session_path, class: "link-decoration" %></li>
           </li>
         </ul>
               <!--   検索フォーム -->
@@ -55,33 +55,29 @@
             </div>
             <div class="toggle_wrap">
               <div class="toggle_switch">
-              <p>Items</p>
+              <p>ITEMS</p>
               </div>
               <div class="toggle_contents">
               <%= link_to "All Items", items_path, class: "link-decoration" %>
               </div>
             </div>
-          <li>
-            <div class="toggle_wrap">
-              <div class="toggle_switch">
-              <p>MY PAGE</p>
-              </div>
-            </div>
-          </li>
+          <li><%= link_to "USER PAGE", mypage_path, method: :delete, class: "link-decoration" %></li>
           <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "link-decoration" %></li>
           <% else %>
+          <li><%= link_to "商品を探す", items_path, class: "link-decoration" %></li>
           <div class="toggle_wrap">
             <div class="toggle_switch">
-              <p>コメントする</p>
+              <p>ENTORY</p>
             </div>
             <div class="toggle_contents">
               <ul>
                 <li><%= link_to "口コミ会員登録", new_user_registration_path, class: "link-decoration" %></li>
                 <li><%= link_to "口コミ会員ログイン", new_user_session_path, class: "link-decoration" %></li>
+                <li><%= link_to "メーカー会員登録", new_maker_registration_path, class: "link-decoration" %></li>
+                <li><%= link_to "メーカーログイン", new_maker_session_path, class: "link-decoration" %></li>
               </ul>
             </div>
           </div>
-          <li><%= link_to "商品を探す", items_path, class: "link-decoration" %></li>
         <% end %>
         </ul>
       </div>
