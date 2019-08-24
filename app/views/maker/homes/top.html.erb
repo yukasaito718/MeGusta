@@ -1,25 +1,6 @@
-<h3>MAKER</h3>
+<h3></h3>
 	<!-- メッセージの表示 -->
 <% if flash[:notice] %>
 	<p class="text-font notice"><%= flash[:notice] %></p>
 <% end %>
 
-  <% if maker_signed_in? %>
-  <li class="nav-list-item-right">
-    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-    <%= link_to "ログアウト", destroy_maker_session_path, method: :delete, class: "link-decoration" %>
-  </li>
-  <li class="nav-list-item-right">
-  	<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-	<%= link_to "makerpage", makerpage_path(current_maker), class: "btn btn-success" %>
-  </li>
-  <li class="nav-list-item-right">
-    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-  <%= link_to "新規商品登録", new_maker_item_path(current_maker), class: "btn btn-success" %>
-  </li>
-
-  <li class="nav-list-item-right">
-    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-  <%= link_to "商品編集", edit_maker_item_path(current_maker), class: "btn btn-success" %>
-  </li>
-  <% end %>

@@ -1,4 +1,5 @@
 class Maker::ItemsController < ApplicationController
+	before_action :authenticate_maker!
 	def index
 		if params[:tag]
 		@items = Item.tagged_with(params[:tag])

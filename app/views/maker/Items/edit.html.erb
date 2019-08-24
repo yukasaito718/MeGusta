@@ -1,4 +1,4 @@
-<div class="item-edit-form text-font panel panel-primary box-shadow">
+<div class="item-box">
   <div class="item-edit-text">
       <%= form_for [:maker, @item] do |f| %>
         <div class="field">
@@ -24,12 +24,6 @@
               <label >賞味期限</label><br>
               <div class="col-xs-6">
               <%= f.text_field :freshness_date, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
-              </div>
-          </div>
-          <div class="row">
-              <label >URL</label><br>
-              <div class="col-xs-6">
-              <%= f.text_field :url, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
               </div>
           </div>
             <label >販売ステータス</label><br>
@@ -68,7 +62,6 @@
 
             <label >画像</label><br>
               <%= f.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
-          </div>
               <div class="actions">
                 <%= f.submit "編集", class: "btn btn-primary" %>
               </div>

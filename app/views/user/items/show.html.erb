@@ -60,19 +60,19 @@
 							<%= render "user/favorites/favorite", item: @item %>
 						</div>
 					</div>
+					<div class ="col-md-12 user-profile-text panel panel-primary col-md-6 text-font">
+						<h4>レビューコメント</h4>
+					    <div id="comments_area">
+					      <!-- 投稿されたコメント一覧を詳細ページに表示するためのrender -->
+					      <%= render partial: 'user/comments/index', locals: { comments: @comments } %>
+					    </div>
+					    <% if user_signed_in? %>
+					      <!-- コメント入力欄をの詳細ページに表示するためのrender -->
+					      <%= render partial: 'user/comments/form', locals: { comment: @comment, item: @item } %>
+					    <% end %>
+		  			</div>
 				</div>
 				<div class="col-md-3"></div>
-				<div class ="user-profile-text panel panel-primary col-md-6 text-font">
-					<h4>レビューコメント</h4>
-				    <div id="comments_area"><!-- #① -->
-				      <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-				      <%= render partial: 'user/comments/index', locals: { comments: @comments } %>
-				    </div>
-				    <% if user_signed_in? %>
-				      <!-- コメント入力欄をの詳細ページに表示するためのrender -->
-				      <%= render partial: 'user/comments/form', locals: { comment: @comment, item: @item } %>
-				    <% end %>
-	  			</div>
 			</div>
 		</div>
 	</main>

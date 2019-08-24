@@ -40,6 +40,30 @@
 						:method => :patch,"data-confirm" => "本当に退会しますか？" , class: "btn btn-danger"%>
 						<% end %>
 					</div>
+					<div class="text_box">
+						<p>お気に入り商品</p>
+						<ul>
+							<% @favorites.each do |favorite| %>
+								<li>
+									<%= link_to item_path(favorite.item) do %>
+									<%= favorite.item.item_name %>
+									<% end %>
+								</li>
+							<% end %>
+						</ul>
+					</div>
+					<div class="text_box">
+						<p>コメントした商品</p>
+						<ul>
+							<% @comments.each do |comment| %>
+							<li>
+								<%= link_to item_path(comment.item) do %>
+								<%= comment.item.item_name %>
+							</li>
+								<% end %>
+							<% end %>
+						</ul>
+					</div>
 				</div>
 				<div class="col-md-3"></div>
 			</div>

@@ -1,0 +1,19 @@
+
+<div class="items">
+	<% if params[:keywords].blank? %><!--もし検索ワードが空欄（スペース含む）ならタイトルだけ表示-->
+		<h1 class="addmin-item-index">Items</h1>
+	<% else %><!-- 空欄でなければ検索ワード＋に関連する商品一覧を表示 -->
+		<h1 class="addmin-item-index">Items</h1>
+		<p class="search-notice"><%= "「" + params[:keywords] + "」" + "に関連する商品一覧"%></p>
+	<% end %>
+	<% @items.each do |item| %>
+		<div class="msr_box01">
+			<%= link_to item_path(item.id),id:"style" do %>
+			<%= attachment_image_tag item, :image,  size: "230x230", fallback: "no_image.jpg", class:"items-contents-picture" %>
+			<h3 class="ttl"><%= item.item_name %></h3>
+			<p><%= item.maker.name %></p>
+			<% end %>
+			<%= render "user/favorites/favorite", item: item %>
+		</div>
+	<% end %>
+</div>

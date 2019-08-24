@@ -1,4 +1,5 @@
 class Maker::ShopsController < ApplicationController
+	before_action :authenticate_maker!
 	def new
 		@shop = Shop.new
 	end
