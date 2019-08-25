@@ -1,72 +1,84 @@
-<body>
-	<main class="clearfix">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-6 text-font">
-					<!-- お知らせメッセージを表示する -->
-					<% if flash[:notice] %>
-						<p class="text-font notice"><%= flash[:notice] %></p>
-					<% end %>
-					<div class="user-link-btn">
-						<h2>My Profile</h2>
-					</div>
-					<!-- プロフィール内容 -->
-					<div class="user-profile-text panel panel-primary box-shadow">
-						<div class="text">
-							<h3>ユーザ名</h3>
-							<div class="space"><%= @user.name %></div>
-							<h3>お名前</h3>
-							<div class="space"><%= @user.last_name %><%= @user.first_name %></div>
-							<h3>お名前（カナ）</h3>
-							<div class="space"><%= @user.last_name_katakana %><%= @user.first_name_katakana %></div>
-							<h3>郵便番号</h3>
-							<div class="space"><%= @user.postal_code %></div>
-							<h3>住所</h3>
-							<div class="space"><%= @user.street_address %></div>
-							<h3>電話番号</h3>
-							<div class="space"><%= @user.phone_number %></div>
-							<h3>メールアドレス</h3>
-							<div class="space"><%= @user.email %></div>
-						</div>
-						<div class="user-pofile-btn">
-							<%= link_to "編集",user_edit_path(@user.id), class: "btn btn-success" %>
-							<%= link_to "戻る", root_path, class: "btn btn-default" %>
-						</div>
-					</div>
-					<div class="user-delete-btn">
-						<% if @user.is_deleted == true%>
-						<%= link_to '退会する', user_path(:id => @user.id, :is_deleted => 'false'),
+		<div class="item_show_box">
+			<div class="item_show_textbox">
+				<h2 class="rank_text_color">PROFILE</h2>
+					<div class ="ander-line"></div>
+						<div class="item_text">
+							<div class="space">
+								<h3>ユーザ名</h3>
+								<%= @user.name %>
+							</div>
+							<div class="space">
+								<span class="item_name">お名前</span>
+								<%= @user.last_name %><%= @user.first_name %>
+							</div>
+							<div class="space">
+								<span class="item_name">フリガナ</span>
+								<%= @user.last_name_katakana %><%= @user.first_name_katakana %>
+							</div>
+							<div class="space">
+								<span class="item_name">郵便番号</span>
+								<%= @user.postal_code %>
+							</div>
+							<div class="space">
+								<span class="item_name">住所</span>
+								<%= @user.street_address %>
+							</div>
+							<div class="space">
+								<span class="item_name">電話番号</span>
+								<%= @user.phone_number %>
+							</div>
+							<div class="space">
+								<span class="item_name">メールアドレス</span>
+								<%= @user.email %>
+							</div>
+								<div class="user-pofile-btn">
+									<%= link_to "編集",user_edit_path(@user.id), class: "btn btn-success" %>
+									<%= link_to "戻る", root_path, class: "btn btn-default" %>
+								</div>
+							<div class="user-delete-btn">
+								<% if @user.is_deleted == true%>
+								<%= link_to '退会する', user_path(:id => @user.id, :is_deleted => 'false'),
 						:method => :patch,"data-confirm" => "本当に退会しますか？" , class: "btn btn-danger"%>
-						<% end %>
-					</div>
-					<div class="text_box">
-						<p>お気に入り商品</p>
-						<ul>
-							<% @favorites.each do |favorite| %>
-								<li>
-									<%= link_to item_path(favorite.item) do %>
-									<%= favorite.item.item_name %>
-									<% end %>
-								</li>
-							<% end %>
-						</ul>
-					</div>
-					<div class="text_box">
-						<p>コメントした商品</p>
-						<ul>
-							<% @comments.each do |comment| %>
-							<li>
-								<%= link_to item_path(comment.item) do %>
-								<%= comment.item.item_name %>
-							</li>
 								<% end %>
-							<% end %>
-						</ul>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-3"></div>
-			</div>
-		</div>
-	</main>
-</body>
+				<div class="item_show_box">
+					<div class="item_show_textbox">
+						<h2 class="rank_text_color">MY FAVORITE</h2>
+						<div class ="ander-line"></div>
+						<div class="item_text">
+							<div class="space">
+								<ul>
+									<% @favorites.each do |favorite| %>
+										<li>
+										<%= link_to item_path(favorite.item) do %>
+										<%= favorite.item.item_name %>
+										<% end %>
+										</li>
+									<% end %>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item_show_box">
+					<div class="item_show_textbox">
+						<h2 class="rank_text_color">MY CMMENTS</h2>
+						<div class ="ander-line"></div>
+						<div class="item_text">
+							<div class="space">
+								<ul>
+									<% @comments.each do |comment| %>
+									<li>
+										<%= link_to item_path(comment.item) do %>
+											<%= comment.item.item_name %>
+									</li>
+										<% end %>
+									<% end %>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>

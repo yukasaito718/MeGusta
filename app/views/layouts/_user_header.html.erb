@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada rel"=stylesheet>
   <div class ="top-title">
     <h1>MEGUSTA</h1>
+    <div class="top_under_line"></div>
   </div>
     <div class =header-link >
       <div class="header-list">
@@ -28,6 +29,11 @@
             <li class="list-item">
               <%= link_to items_path, class: "link-decoration" do %>
               <span>ITEMS</span>
+              <% end %>
+            </li>
+            <li class="list-item">
+              <%= link_to mypage_path, class: "link-decoration" do %>
+              <span>MYPAGE</span>
               <% end %>
             </li>
             <li class="list-item">
@@ -65,18 +71,7 @@
         </ul>
       </div>
     </div>
-              <!--   検索フォーム -->
-        <div class="search-content-box">
-          <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-          <div class="inner">
-          <%= form_tag items_path,id:"searchform", method: :get do %>
-          <%= text_field_tag :keywords, '',{class:'search',id:'text',type:'text',placeholder:'検索キーワード'} %>
-          <%= submit_tag '' ,id:"submit", :item_name => nil %>
-          <% end %>
-          <a href="#" class="search-btn"><i class="fa fa-search search-color"></i></a><!--虫眼鏡アイコン -->
-          </div>
-        </div>
-      </div>
+ 
 <!-- ハンバーガーメニュー -->
       <div id="sp-menu">
         <h1>MENU</h1>
@@ -93,7 +88,6 @@
           <li><%= link_to "新規商品登録", new_maker_item_path(current_maker) %></li>
           <li><%= link_to "商品編集", edit_maker_item_path(current_maker) %></li>
           <li><%= link_to "Log Out", destroy_maker_session_path, method: :delete %></li>
-
         <% else %>
           <li><%= link_to "ITEMS", items_path, class: "link-decoration" %></li>
           <div class="toggle_wrap">
@@ -119,7 +113,17 @@
       <span></span>
       </a>
     </div>
-  </div>
+                 <!--   検索フォーム -->
+        <div class="search-content-box">
+          <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+          <div class="inner">
+          <%= form_tag items_path,id:"searchform", method: :get do %>
+          <%= text_field_tag :keywords, '',{class:'search',id:'text',type:'text',placeholder:'検索キーワード'} %>
+          <%= submit_tag '' ,id:"submit", :item_name => nil %>
+          <% end %>
+          <a href="#" class="search-btn"><i class="fa fa-search search-color"></i></a><!--虫眼鏡アイコン -->
+          </div>
+        </div>
 </header>
 
 </main>

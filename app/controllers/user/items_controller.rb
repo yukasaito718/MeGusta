@@ -18,6 +18,8 @@ class User::ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		@comment = Comment.new
 		@comments = @item.comments
+		@shop = Shop.new
+		@shops = @item.shops
 		@categories = Category.all
 	end
 end

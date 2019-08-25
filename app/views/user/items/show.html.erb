@@ -1,80 +1,124 @@
-<body>
-
-	<main class="clearfix">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-6 text-font">
-					<!-- お知らせメッセージを表示する -->
-					<% if flash[:notice] %>
-						<p class="text-font notice"><%= flash[:notice] %></p>
-					<% end %>
-					<div class="user-link-btn">
-						<h2>商品詳細内容</h2>
-					</div>
+		<!-- お知らせメッセージを表示する -->
 					<!-- 商品詳細内容 -->
-					<div class="user-profile-text panel panel-primary box-shadow">
-						<div class="text">
-							<div class="space"><%= attachment_image_tag @item, :image,  size: "400x400", fallback: "no_image.jpg", class:"item-contents-picture"%></div>
-							<h3 class="item_fontsize">商品名</h3>
-							<div class="space"><%= @item.item_name %></div>
-							<h3 class="item_fontsize">商品説明</h3>
-							<div class="space"><%= @item.introduction %></div>
-							<h3 class="item_fontsize">価格</h3>
-							<div class="space"><%= @item.price %></div>
-							<h3 class="item_fontsize">内容個数</h3>
-							<div class="space"><%= @item.count %></div>
-							<h3 class="item_fontsize">賞味期限</h3>
-							<div class="space"><%= @item.freshness_date %></div>
+				<div class="item_show_box">
+					<div class="item_show_textbox">
+						<h2 class="rank_text_color">INTROTUCTION</h2>
+						<div class ="ander-line"></div>
+						<div class="item_text">
+							<div class="space"><%= attachment_image_tag @item, :image,  size: "250x250", fallback: "no_image.jpg", class:"item-show-picture"%>
+							</div>
 							<div class="space">
-								<h3 class="item_fontsize">販売ステータス</h3>
+								<span class="item_name">商品名：</span>
+								<%= @item.item_name %>
+							</div>
+							<div class="space">
+								<span class="item_name">商品説明：<br></span>
+								<%= @item.introduction %>
+							</div>
+							<div class="space">
+								<span class="item_name">価格：</span>
+								<%= @item.price %>
+							</div>
+							<div class="space">
+								<span class="item_name">内容量：</span>
+								<%= @item.count %>
+							</div>
+							<div class="space">
+								<span class="item_name">賞味期限：</span>
+								<%= @item.freshness_date %>
+							</div>
+							<div class="space">
+								<span class="item_name">販売ステータス：</span>
 								<% if @item.is_sold %>
-								<b><font color="#008000">取り扱い中</font></b>
-								<% else %>
-								<b><font color="#ff0000">取扱停止中</font></b>
-								<% end %>
+									<span class="label label-success">取り扱い中</span>
+									<% else %>
+									<span class="label label-danger">取扱停止中</span>
+									<% end %>
 							</div>
 							<div class="space">
-								<h3 class="item_fontsize">保存方法</h3>
+								<span class="item_name">保存方法：</span>
 								<% if @item.is_refrigeration %>
-								<b><font color="#008000">常温保存</font></b>
+								<span class="label label-warning">常温保存</span>
 								<% else %>
-								<b><font color="#ff0000">要冷蔵</font></b>
+								<span class="label label-info">要冷蔵</span>
 								<% end %>
 							</div>
 							<div class="space">
-								<h3 class="item_fontsize">個装</h3>
-								<% if @item.is_packaged %>
-								<b><font color="#008000">あり</font></b>
-								<% else %>
-								<b><font color="#ff0000">なし</font></b>
-								<% end %>
+									<span class="item_name">個装：</span>
+									<% if @item.is_packaged %>
+									<span class="label label-success">あり</span>
+									<% else %>
+									<span class="label label-primary">なし</span>
+									<% end %>
 							</div>
 							<div class="space">
-								<% @item.categories.each do |category| %>
-								  <%= category.name %>
-								<% end %>
+								<span class="item_name">カテゴリー：</span>
+									<% @item.categories.each do |category| %>
+									<span class="label label-default">
+									  <%= category.name %>
+									</span>
+									<% end %>
 							</div>
-						</div>
-						<div class="user-pofile-btn">
-							<%= render "user/favorites/favorite", item: @item %>
+								<div class="user-pofile-btn">
+								<%= render "user/favorites/favorite", item: @item %>
+								</div>
 						</div>
 					</div>
-					<div class ="col-md-12 user-profile-text panel panel-primary col-md-6 text-font">
-						<h4>レビューコメント</h4>
-					    <div id="comments_area">
-					      <!-- 投稿されたコメント一覧を詳細ページに表示するためのrender -->
-					      <%= render partial: 'user/comments/index', locals: { comments: @comments } %>
-					    </div>
-					    <% if user_signed_in? %>
-					      <!-- コメント入力欄をの詳細ページに表示するためのrender -->
-					      <%= render partial: 'user/comments/form', locals: { comment: @comment, item: @item } %>
-					    <% end %>
-		  			</div>
 				</div>
-				<div class="col-md-3"></div>
-			</div>
-		</div>
+				<div class="item_show_box">
+					<div class="item_show_textbox">
+						<h2 class="rank_text_color">SHOPS</h2>
+						<div class ="ander-line"></div>
+						<div class="item_text">
+							<div class="space">
+								<span class="item_name">メーカー名：</span>
+								<% @item.maker.name %>
+							</div>
+							<div class="space">
+								<span class="item_name"></span>
+								<% @item.shops.each do |shop| %>
+								<div class="space">
+									<span class="item_name">取扱店舗名：</span>
+									<%= shop.name %>
+								</div>
+								<div class="space">
+									<span class="item_name">郵便番号：</span>
+									<%= shop.postal_code %>
+								</div>
+								<div class="space">
+									<span class="item_name">住所：</span>
+									<%= shop.street_address %>
+								</div>
+								<div class="space">
+									<span class="item_name">電話番号：</span>
+									<%= shop.phone_number %>
+								</div>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+			<!-- コメントのbox-->
+				<div class="item_show_box">
+					<div class="item_show_textbox">
+						<h2 class="rank_text_color">COMMENTS</h2>
+						<div class ="ander-line"></div>
+						<div class="item_text ">
+							<div class="space">
+								<div id="comments_area ">
+					      		<!-- 投稿されたコメント一覧を詳細ページに表示するためのrender -->
+					      			<%= render partial: 'user/comments/index', locals: { comments: @comments } %>
+					    		</div>
+					    		<% if user_signed_in? %>
+					      		<!-- コメント入力欄をの詳細ページに表示するためのrender -->
+						      		<%= render partial: 'user/comments/form', locals: { comment: @comment, item: @item } %>
+							    <% end %>
+							</div>
+						</div>
+					</div>
+				</div>
 			<%= render 'layouts/user_sidebar', categories: @categories %>
-	</main>
-</body>

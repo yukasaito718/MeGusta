@@ -1,8 +1,15 @@
+
+
+<div class="tag_box">
+	<div class="tag_box_center">
 		<h2 class="rank_text_color">CATEGORY</h2>
+		<div class="ander-line"></div>
 		<% @categories.each do |category| %>
 			<%= link_to category_items_path(category.id) do %>
 				<div class="tag_text_box ">
-					<%= category.name %>
+						<%= category.name %>
 				</div>
 			<% end %>
 		<% end %>
+	</div>
+</div>
