@@ -13,6 +13,7 @@ class User::ItemsController < ApplicationController
 				 	Item.search(keywords)
 				 end
 		@categories = Category.all
+		@post_images = Item.all.page(params[:page]).reverse_order
 	end
 	def show
 		@item = Item.find(params[:id])
