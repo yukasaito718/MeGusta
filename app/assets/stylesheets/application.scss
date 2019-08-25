@@ -35,8 +35,8 @@
   font-family: "Objective","游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",sans-serif;
 }
 
+
 body {
-  margin: 0 auto;
 }
 /*ヘッダー
 */
@@ -48,7 +48,13 @@ header {
   font-size: 50px;
   position: fixed;
   top:0;
-  left:0;
+  left:20;
+}
+.top-title{
+  font-size: 80px;
+  margin:0 auto;
+  text-align: center;
+  font-family: 'Economica', sans-serif;
 }
 .header-link {
   width: 100;
@@ -71,6 +77,14 @@ header {
   display: inline-block;
   margin: 0 20px;
 
+}
+footer{
+  text-decoration: none;
+  text-align: center;
+  margin:0 auto;
+}
+.icon-list{
+  display: inline-block;
 }
 /*//マイページ編集画面
 */.main {
@@ -101,8 +115,9 @@ header {
   width: 50px;
   height: 50px;
   position: fixed;
-  top:10px;
+  top:20px;
   right: 100px;
+  z-index: 1020;
 }
 .inner {
   height: 44px;
@@ -152,7 +167,7 @@ header {
   right: 0;
   transition: all 0.7s;
   width: 44px;
-  z-index: 1001;
+  z-index: 1020;
 }
 
 #submit {
@@ -292,18 +307,6 @@ background-color: #fff;
   padding: 5px 10px;
 }
 
-
-/*トップビジュアル*/
-.top-photo {
-  margin: 0 auto;
-  background-image: url(test2.jpg);
-  width: 80%;
-  height: 500px;
-  background-size: cover;
-  background-position: center;
-}
-
-
 .item-contents{
   float:left
 }
@@ -364,9 +367,28 @@ background-color: #fff;
 /*ランキング*/
 .rank-box{
   width: 80%;
+  margin:0 auto;
+  text-align: center;
+  padding: 100px;
+  background-color: #E5E5E5;
+  margin-top: 60px;
+  padding: 10px 0 20px 0;
 }
 .rank-textbox {
   float: left;
+  position: relative;
+}
+.rank_shadow:hover{
+  box-shadow: 10px 10px 15px -10px;
+  padding:0;
+}
+.rank_number{
+  position: absolute;
+  top:0;
+  left: 0;
+}
+.rank_text_color{
+  color:#fff;
 }
 
 a {
@@ -379,7 +401,7 @@ color:#808080;
   margin: 0 auto;
 }
 
-/*アコーディングメニュー*/
+/*アコーディオンメニュー*/
 
 #acMenu dt{
 display:block;
@@ -492,4 +514,73 @@ display:none;
   padding: 10px;
   text-align: left;
   box-sizing: border-box;
+}
+
+.carousel{
+  height: 200px;
+  margin:auto;
+  width: 80%
+}
+.carousel .item {
+  height: 100%;
+}
+
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+@media (min-width: 320px) {
+  .carousel,
+  .carousel .item,
+  .carousel .item-mask,
+  .carousel-inner .item .item-mask img {
+    height:200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel,
+  .carousel .item,
+  .carousel .item-mask,
+  .carousel-inner .item .item-mask img {
+    height:400px;
+  }
+}
+
+.tag_box{
+  width: 80%;
+  text-align: center;
+  margin:0 auto;
+  padding:30px;
+  height: 400px;
+  background-color:#E5E5E5;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.tag_text_box{
+  border-radius:20px;
+  border:5px solid #E5E5E5;
+  width:200px; height:100px;
+  padding: 40px;
+  margin:5px 5px 5px 5px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #808080;
+  float: left;
+  color:#fff;
+
+}
+.tag_text_box:hover{
+  background-color: #fff;
+  box-shadow: 10px 10px 15px -10px;
+  color: #808080;
+}
+.tag_box_center{
+  width: 90%;
+  margin: 0 auto;
 }

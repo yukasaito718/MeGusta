@@ -18,10 +18,10 @@ class User::UsersController < ApplicationController
 	  	  	@user = User.find(current_user.id)
 			if @user.update(user_params)
 				flash[:notice] = "プロフィール内容を更新しました。"
-				redirect_to user_mypage_path(current_user)
+				redirect_to mypage_path(current_user)
 			else
 				flash[:notice] = "編集の更新に失敗しました"
-				redirect_to user_mypage_edit_path(current_user)
+				redirect_to mypage_edit_path(current_user)
 			end
 		end
 	end

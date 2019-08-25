@@ -13,10 +13,13 @@
           <span class="TopIcon">M</span>
        <% end %>
   <% end %>
+<link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada rel"=stylesheet>
+  <div class ="top-title">
+    <h1>MEGUSTA</h1>
   </div>
     <div class =header-link >
       <div class="header-list">
-        <ul class="link-list toggle_wrap">
+        <ul class="link-list">
 
           <% if user_signed_in? %>
             <li class="list-item">
@@ -26,9 +29,6 @@
               <%= link_to items_path, class: "link-decoration" do %>
               <span>ITEMS</span>
               <% end %>
-            </li>
-            <li class="list-item toggle_wrap">
-              <span>TAGS</span>
             </li>
             <li class="list-item">
               <%= link_to destroy_user_session_path, method: :delete do %>
@@ -51,11 +51,15 @@
               <span>ITEMS</span>
               <% end %>
             </li>
-            <li class="list-item toggle_wrap">
-              <span>TAGS</span>
+            <li class="list-item">
+              <%= link_to new_user_registration_path do %>
+              <span>SIGN-UP</span>
+              <% end %>
             </li>
             <li class="list-item">
-              <span>ENTORY</span>
+              <%= link_to new_user_session_path do %>
+              <span>SIGN-IN</span>
+              <% end %>
             </li>
           <% end %>
         </ul>
@@ -78,19 +82,11 @@
         <h1>MENU</h1>
         <ul><!--ヘッダーリンク先-->
         <% if user_signed_in? %>
-            <div class="welcome-text">
-              Login User：<%= current_user.name %>
-            </div>
-            <div class="toggle_wrap">
-              <div class="toggle_switch">
-              <p>ITEMS</p>
-              </div>
-              <div class="toggle_contents">
-              <%= link_to "All Items", items_path, class: "link-decoration" %>
-              </div>
-            </div>
-          <li><%= link_to "USER PAGE", mypage_path, class: "link-decoration" %></li>
-          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "link-decoration" %></li>
+                <li>
+                <%= link_to "ITEMS", items_path, class: "link-decoration" %>
+                </li>
+                <li><%= link_to "USER PAGE", mypage_path, class: "link-decoration" %></li>
+                <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "link-decoration" %></li>
 
         <% elsif maker_signed_in? %>
           <li><%= link_to "makerpage", makerpage_path(current_maker) %></li>

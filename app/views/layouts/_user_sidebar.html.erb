@@ -1,6 +1,8 @@
-
+		<h2 class="rank_text_color">CATEGORY</h2>
 		<% @categories.each do |category| %>
 			<%= link_to category_items_path(category.id) do %>
-			<%= category.name %>
+				<div class="tag_text_box ">
+					<%= category.name %>
+				</div>
 			<% end %>
 		<% end %>

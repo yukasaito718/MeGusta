@@ -5,48 +5,49 @@
 <% if flash[:notice] %>
   <p class="text-font1 notice"><%= flash[:notice] %></p>
 <% end %>
+
 <div class="top-box">
-	<div class ="top-photo wow fadeInLeft">
+	<!-- スライドショー-->
+	<div id="sampleCarousel" class="carousel slide" data-ride="carousel" data-pause="hover">
+		<ol class="carousel-indicators">
+			<li class="active" data-target="#sampleCarousel" data-slide-to="0"></li>
+			<li data-target="#sampleCarousel" data-slide-to="1"></li>
+			<li data-target="#sampleCarousel" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<%= image_tag "test1.jpg",class:"img" %>
+			</div>
+			<div class="item">
+				<%= image_tag "test2.jpg",class:"img" %>
+			</div>
+			<div class="item">
+				<%= image_tag "test3.jpg",class:"img" %>
+			</div>
+		</div>
+		<a class="left carousel-control" href="#sampleCarousel" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">前へ</span>
+		</a>
+		<a class="right carousel-control" href="#sampleCarousel" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">次へ</span>
+		</a>
 	</div>
 </div>
-<div class ="rank-box">
+
+<div class ="rank-box clearfix">
+	<h2 class="rank_text_color">RANKING</h2>
 	<% @all_ranks.each.with_index(1) do |all_rank,i| %>
 	<div class ="rank-textbox">
-		<%= i %><br>
-		<%= attachment_image_tag all_rank, :image,  size: "200x200", fallback: "no_image.jpg", class:"items-contents-picture"%><br>
-		<%= all_rank.item_name %>
+		<%= attachment_image_tag all_rank, :image,  size: "200x200", fallback: "no_image.jpg", class:"items-contents-picture rank_shadow"%><br>
+		<div class="rank_number"><%= i %></div>
 	</div>
 	<% end %>
-</div>
-
-
-
-<!-- スライドショー-->
-<!-- <div id="sampleCarousel" class="carousel slide" data-ride="carousel" data-pause="hover">
-	<ol class="carousel-indicators">
-		<li class="active" data-target="#sampleCarousel" data-slide-to="0"></li>
-		<li data-target="#sampleCarousel" data-slide-to="1"></li>
-		<li data-target="#sampleCarousel" data-slide-to="2"></li>
-	</ol>
-	<div class="carousel-inner" role="listbox">
-		<div class="item active">
-			<%# image_tag "test1.jpg" %>
-		</div>
-		<div class="item">
-			<%# image_tag "test2.jpg" %>
-		</div>
-		<div class="item">
-			<%# image_tag "test3.jpg" %>
-		</div>
 	</div>
-	<a class="left carousel-control" href="#sampleCarousel" role="button" data-slide="prev">
-		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-		<span class="sr-only">前へ</span>
-	</a>
-	<a class="right carousel-control" href="#sampleCarousel" role="button" data-slide="next">
-		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-		<span class="sr-only">次へ</span>
-	</a>
-</div> -->
-
-<%= render 'layouts/user_sidebar', categories: @categories %>
+</div>
+<div class="tag_box">
+	<div class="tag_box_center">
+		<%= render 'layouts/user_sidebar', categories: @categories %>
+	</div>
+</div>
