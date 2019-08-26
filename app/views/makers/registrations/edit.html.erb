@@ -1,9 +1,7 @@
 <div class="col-xs-9 text-font">
-  <% if flash[:notice] %>
-      <div class="alert alert-danger">
-    <%= flash[:notice] %>
-    </div>
-  <% end %>
+          <% if flash[:notice] %>
+            <p class="text-font notice"><%= flash[:notice] %></p>
+          <% end %>
   <h2 align="center">登録情報編集</h2>
     <%= form_for [:maker, @maker] do |f| %>
     <div class="profile-text panel panel-primary box-shadow">

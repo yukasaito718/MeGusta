@@ -1,4 +1,6 @@
-
+<% if flash[:notice] %>
+	<p class="text-font notice"><%= flash[:notice] %></p>
+<% end %>
 <div class="items">
 	<% if params[:keywords].blank? %><!--もし検索ワードが空欄（スペース含む）ならタイトルだけ表示-->
 	<% else %><!-- 空欄でなければ検索ワード＋に関連する商品一覧を表示 -->

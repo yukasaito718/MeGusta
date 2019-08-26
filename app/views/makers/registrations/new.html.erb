@@ -1,4 +1,6 @@
-
+          <% if flash[:notice] %>
+            <p class="text-font notice"><%= flash[:notice] %></p>
+          <% end %>
 <main class="clearfix">
   <div class="profile-text">
     <div class ="row">

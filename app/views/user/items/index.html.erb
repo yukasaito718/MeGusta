@@ -1,8 +1,6 @@
-	<% if flash[:notice] %>
-    	<div class="alert alert-danger">
-		<%= flash[:notice] %>
-		</div>
-	<% end %>
+<% if flash[:notice] %>
+	<p class="text-font notice"><%= flash[:notice] %></p>
+<% end %>
 
 <div class="items">
 	<% if params[:keywords].blank? %><!--もし検索ワードが空欄（スペース含む）ならタイトルだけ表示-->

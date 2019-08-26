@@ -1,8 +1,8 @@
 <%= form_with(model: [ item, comment] ) do |form| %>
   <div>
-    <%= form.text_area :comment, class:'' %>
+    <%= form.text_area :comment, class:'form-control' %>
   </div>
   <div class="actions">
-    <%= form.submit "送信",class:"btn prymary" %>
+    <%= form.submit "送信",class:"btn btn-primary btn-lg btn-block" %>
   </div>
 <% end %>

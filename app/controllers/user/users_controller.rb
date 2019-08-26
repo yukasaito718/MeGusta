@@ -21,7 +21,7 @@ class User::UsersController < ApplicationController
 				redirect_to mypage_path(current_user)
 			else
 				flash[:notice] = "編集の更新に失敗しました"
-				redirect_to mypage_edit_path(current_user)
+				redirect_to mypage_path(current_user)
 			end
 		end
 	end

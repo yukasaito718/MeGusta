@@ -1,4 +1,7 @@
-<body>
+
+	<% if flash[:notice] %>
+		<p class="text-font notice"><%= flash[:notice] %></p>
+	<% end %>
 	<main class="clearfix">
 		<div class="container">
 			<div class="row">
@@ -40,4 +43,3 @@
 			</div>
 		</div>
 	</main>
-</body>
