@@ -15,7 +15,6 @@
 //= require jquery
 //= require jquery.slick
 //= require bootstrap-sprockets
-//= require underscore
 //= require gmaps/google
 //= require_tree .
 
