@@ -386,13 +386,13 @@ background-color: #fff;
   padding:0;
 }
 .rank_number{
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   position: absolute;
-  top:150px;
-  left: 2px;
-  padding-top: 10px;
-  border-radius: 20px;
+  top:20px;
+  left: 10px;
+  padding-top: 8px;
+  border-radius: 50px;
   background-color: #FFF;
   color:gray;
 }
@@ -400,7 +400,12 @@ background-color: #fff;
   color:#fff;
   text-align: center;
 }
-
+.rank_box_center{
+  width: 100%;
+  margin: 0 auto;
+  height: 300px;
+  padding-top: 20px;
+}
 a {
 color:#808080;
 }

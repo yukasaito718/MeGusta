@@ -1,47 +1,31 @@
-<div class = "col-xs-9 item-new-main">
-	<% if flash[:notice] %>
-    <div class="alert alert-danger">
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-	<h1>商品新規追加画面</h1>
-    <div class="item-box">
-      <div class="item-text-box">
-        <%= form_for [@item], url:maker_items_path do |f| %>
-        <div class="field">
-          <div class="row">
-            <h3>商品名</h3><br>
-            <div class="col-xs-8">
-            <%= f.text_field :item_name, class:'form-control', :placeholder => "商品名を入力 " %>
-            </div>
-          </div>
-          <div class="row">
-            <h3>紹介文</h3><br>
-            <div class="col-xs-8">
-            <%= f.text_field :introduction, class:'form-control', :placeholder => "商品名を入力 " %>
-            </div>
-          </div>
-	        <div class="row">
-	            <h3>販売価格</h3><br>
-	            <div class="col-xs-6">
-	            <%= f.text_field :price, class:'form-control', :placeholder => "※半角数字　税抜価格" %>
-	            </div>
-	        </div>
-	        <div class="row">
-	            <h3>内容量</h3><br>
-	            <div class="col-xs-6">
-	            <%= f.text_field :count, class:'form-control', :placeholder => "※例：12個入り　など" %>
-	            </div>
-	        </div>
-          <div class="row">
-              <h3>賞味期限</h3><br>
-              <div class="col-xs-6">
-              <%= f.text_field :freshness_date, class:'form-control', :placeholder => "※例：１週間・３日　など" %>
+    <div class="item_show_box">
+      <div class="item_show_textbox">
+        <h2 class="rank_text_color">ADD ITEM</h2> 
+          <div class ="ander-line"></div>
+            <div class="item_text">
+              <%= form_for [@item], url:maker_items_path do |f| %>
+              <div class="space">
+                <span class="item_name">商品名：</span>
+                <%= f.text_field :item_name, class:'form-control', :placeholder => "商品名を入力 " %>
               </div>
-          </div>
-
-            <h3>販売ステータス</h3><br>
-            <div>
+            <div class="space">
+              <span class="item_name">商品紹介：</span>
+              <%= f.text_area :introduction, class:'form-control', :placeholder => "商品の特徴について入力　セールスポイントなど " %>
+            </div>
+            <div class="space">
+              <span class="item_name">販売価格：</span>
+	            <%= f.text_field :price, class:'form-control', :placeholder => "※半角数字　税抜価格" %>
+	           </div>
+            <div class="space">
+              <span class="item_name">内容量：</span>
+	            <%= f.text_field :count, class:'form-control', :placeholder => "※例：12個入り　など" %>
+	           </div>
+            <div class="space">
+              <span class="item_name">賞味期限：</span>
+                <%= f.text_field :freshness_date, class:'form-control', :placeholder => "※例：１週間・３日　など" %>
+            </div>
+            <div class="space">
+              <span class="item_name">販売状況：</span>
               <div class="radio">
                 <%= f.radio_button :is_sold, 'true', { id:"radio-1", type:"radio", checked: true}%>
                 <label for="radio-1" class="radio-label">販売中</label>
@@ -51,8 +35,8 @@
                 <label for="radio-2" class="radio-label">販売中止</label>
               </div>
             </div>
-            <h3>保存方法</h3><br>
-            <div>
+            <div class="space">
+              <span class="item_name">保存方法：</span>
               <div class="radio">
                 <%= f.radio_button :is_refrigeration, 'true', { id:"radio-1", type:"radio", checked: true}%>
                 <label for="radio-1" class="radio-label">常温保存可能</label>
@@ -62,10 +46,10 @@
                 <label for="radio-2" class="radio-label">要冷蔵</label>
               </div>
             </div>
-            <label >個装</label><br>
-            <div>
+            <div class="space">
+              <span class="item_name">個装：</span>
               <div class="radio">
-                <%= f.radio_button :is_packaged, 'true', { id:"radio-1", type:"radio", checked: true}%>
+                  <%= f.radio_button :is_packaged, 'true', { id:"radio-1", type:"radio", checked: true}%>
                 <label for="radio-1" class="radio-label">あり</label>
               </div>
               <div class="radio">
@@ -73,27 +57,31 @@
                 <label for="radio-2" class="radio-label">なし</label>
               </div>
             </div>
-            <label >画像</label><br>
-              <%= f.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
-            <label >カテゴリ</label><br>
+            <div class="space">
+              <span class="item_name">画像選択：</span>              <%= f.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
+            </div>
+            <div class="space">
+              <span class="item_name">カテゴリー選択：</span><br>
                 <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, include_hidden: false) do |category| %>
                   <%= category.label do %>
                     <%= category.check_box %>
                     <%= category.text %>
                   <% end %>
                 <% end %>
-              <label >取扱店舗選択</label><br>
+              </div>
+            <div class="space">
+              <span class="item_name">取扱店舗選択：</span><br>
                 <%= f.collection_check_boxes(:shop_ids, Shop.all, :id, :name) do |shop| %>
                   <%= shop.label {shop.check_box + shop.text} %>
 <!--                       <%= shop.check_box %>
                       <%= shop.text %>
                   <%# end %> -->
                 <% end %>
-          </div>
+            </div>
 
-              <div class="actions">
-                <%= f.submit "商品新規追加", class: "btn btn-primary" %>
-              </div>
+            <div class="space">
+              <%= f.submit "商品新規追加", class: "btn btn-primary btn-lg btn-block" %>
+            </div>
             <% end %>
         </div>
     </div>

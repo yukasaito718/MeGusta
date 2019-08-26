@@ -6,11 +6,12 @@ class Maker::ItemsController < ApplicationController
 		else
 		@items = Item.all
 		end
+		maker =current_maker
+		@maker_items = maker.items
 	end
 	def new
 		@item = Item.new
 	end
-
     def create  #投稿保存#form_forの情報がやってくるアクション
 		@item = Item.new(item_params)
 		@item.maker_id = current_maker.id
@@ -30,7 +31,7 @@ class Maker::ItemsController < ApplicationController
 	end
 
 	def update
-		@item = Item.find(current_maker.id)
+		@item = Item.find(params[:id])
 		if @item.update(item_params)
 			flash[:notice] = "編集内容を更新しました。"
 			redirect_to makerpage_path(current_maker)

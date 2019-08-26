@@ -39,12 +39,15 @@
 <div class ="rank-box clearfix">
 	<h2 class="rank_text_color">RANKING</h2>
 	<div class="ander-line"></div>
-	<% @all_ranks.each.with_index(1) do |all_rank,i| %>
-	<div class ="rank-textbox">
-		<%= attachment_image_tag all_rank, :image,  size: "200x200", fallback: "no_image.jpg", class:"items-contents-picture rank_shadow"%><br>
-		<div class="rank_number"><%= i %></div>
-	</div>
-	<% end %>
+	<div class="rank_box_center">
+		<% @all_ranks.each.with_index(1) do |all_rank,i| %>
+			<%= link_to item_path(all_rank) do %>
+				<div class ="rank-textbox">
+					<%= attachment_image_tag all_rank, :image,  size: "200x200", fallback: "no_image.jpg", class:"items-contents-picture rank_shadow"%><br>
+					<div class="rank_number"><%= i %></div>
+				</div>
+			<% end %>
+		<% end %>
 	</div>
 </div>
 		<%= render 'layouts/user_sidebar', categories: @categories %>

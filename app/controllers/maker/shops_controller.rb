@@ -7,10 +7,20 @@ class Maker::ShopsController < ApplicationController
 		@shop = Shop.new(shop_params)
 		@shop.maker_id = current_maker.id
 		if @shop.save
-			flash[:notice] = "商品登録に成功しました。"
-			redirect_to new_maker_path
+			redirect_to makerpage_path(current_maker)
 		else
-			redirect_to new_maker_shop_path
+			redirect_to makerpage_path(current_maker)
+		end
+	end
+	def edit
+		@shop = Shop.find(params[:id])
+	end
+	def update
+		@shop = Shop.find(params[:id])
+		if @shop.update(shop_params)
+			redirect_to makerpage_path(current_maker)
+		else
+			redirect_to makerpage_path(current_maker)
 		end
 	end
 	def shop_params

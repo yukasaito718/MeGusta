@@ -3,6 +3,8 @@ class Maker::MakersController < ApplicationController
 
 	def show
 		@maker = current_maker
+		@shop = Shop.new
+		@shops = @maker.shops
 	end
 
 	def edit
