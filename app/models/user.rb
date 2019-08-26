@@ -15,8 +15,5 @@ class User < ApplicationRecord
 	validates :first_name_katakana, presence: true, format: { with: /\A[ア-ン゛゜ァ-ォャ-ョー「」、]+\z/, message: "全角カタカナのみが使用できます" }
 	validates :street_address, presence: true
 	validates :postal_code, presence: true, format: { with: /\A[0-9]+\z/, message: "半角数字のみが使用できます" }
-  	validates :freshness_date, presence: true, length: { maximum: 25 }
 	validates :phone_number, presence: true, length: { maximum: 11 }
-
-
   end

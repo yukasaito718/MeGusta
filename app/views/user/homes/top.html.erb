@@ -2,10 +2,11 @@
 
 <!-- メッセージの表示 -->
 
-<% if flash[:notice] %>
-  <p class="text-font1 notice"><%= flash[:notice] %></p>
-<% end %>
-
+	<% if flash[:notice] %>
+    	<div class="alert alert-danger">
+		<%= flash[:notice] %>
+		</div>
+	<% end %>
 <div class="top-box">
 	<!-- スライドショー-->
 	<div id="sampleCarousel" class="carousel slide" data-ride="carousel" data-pause="hover">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_073223) do
+ActiveRecord::Schema.define(version: 2019_08_26_093939) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -87,6 +87,8 @@ ActiveRecord::Schema.define(version: 2019_08_22_073223) do
     t.boolean "is_deleted"
     t.string "name"
     t.text "url"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_makers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_makers_on_reset_password_token", unique: true
   end
@@ -107,6 +109,8 @@ ActiveRecord::Schema.define(version: 2019_08_22_073223) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "maker_id"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "taggings", force: :cascade do |t|

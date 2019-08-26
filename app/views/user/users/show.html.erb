@@ -1,3 +1,8 @@
+	<% if flash[:notice] %>
+    	<div class="alert alert-danger">
+		<%= flash[:notice] %>
+		</div>
+	<% end %>
 		<div class="item_show_box">
 			<div class="item_show_textbox">
 				<h2 class="rank_text_color">PROFILE</h2>
@@ -72,10 +77,10 @@
 								<ul>
 									<% @comments.each do |comment| %>
 									<li>
-										<%# link_to item_path(comment.item) do %>
-											<%# comment.item.item_name %>
+										<%= link_to item_path(comment.item) do %>
+											<%= comment.item.item_name %>
 									</li>
-										<%# end %>
+										<% end %>
 									<% end %>
 								</ul>
 							</div>

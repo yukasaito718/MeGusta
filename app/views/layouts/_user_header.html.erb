@@ -43,8 +43,8 @@
             </li>
 
           <% elsif maker_signed_in? %>
-            <li class="list-item"><%= link_to "MYPAGE", makerpage_path(current_maker) %></li>
-            <li class="list-item"><%= link_to "新規商品登録", new_maker_item_path(current_maker) %></li>
+            <li class="list-item"><%= link_to "MYPAGE", makerpage_path %></li>
+            <li class="list-item"><%= link_to "新規商品登録", new_maker_item_path %></li>
             <li class="list-item"><%= link_to "商品一覧ページ", maker_items_path %></li>
             <li class="list-item"><%= link_to "LOG-OUT", destroy_maker_session_path, method: :delete %></li>
 
@@ -85,7 +85,7 @@
         <% elsif maker_signed_in? %>
           <li><%= link_to "MAKER PAGE", makerpage_path %></li>
           <li class="list-item"><%= link_to "商品一覧ページ", maker_items_path %></li>
-          <li><%= link_to "新規商品登録", new_maker_item_path(current_maker) %></li>
+          <li><%= link_to "新規商品登録", new_maker_item_path %></li>
           <li><%= link_to "LOG-OUT", destroy_maker_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "ITEMS", items_path, class: "link-decoration" %></li>

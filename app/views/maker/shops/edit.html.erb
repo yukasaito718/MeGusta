@@ -1,30 +1,40 @@
-<div class="col-xs-9 text-font">
-  <% if flash[:notice] %>
-      <div class="alert alert-danger">
-    <%= flash[:notice] %>
+        <!--メッセージ-->
+<% if flash[:notice] %>
+  <div class="alert alert-danger">
+<%= flash[:notice] %>
+</div>
+<% end %>
+<div class="item_show_box">
+  <div class="item_show_textbox">
+    <h2 class="rank_text_color">SHOP EDIT</h2>
+    <div class ="ander-line"></div>
+    <div class="item_text">
+      <%= form_for [:maker, @shop] do |f| %>
+          <div class="space">
+            <span class="item_name">店舗名：</span>
+            <%= f.text_field :name, class:'form-control', placeholder:"※空欄不可" %>
+          </div>
+          <div class="space">
+            <span class="item_name">店舗名（フリガナ）：</span>
+            <%= f.text_field :name_hurigana, class:'form-control', placeholder:"全角カタカナ" %>
+          </div>
+          <div class="space">
+            <span class="item_name">郵便番号：</span>
+            <%= f.text_field :postal_code, class:'form-control', placeholder:"郵便番号" %>
+          </div>
+          <div class="space">
+            <span class="item_name">住所：</span>
+            <%= f.text_field :street_address, class:'form-control', placeholder:"住所" %>
+          </div>
+          <div class="space">
+            <span class="item_name">電話番号：</span>
+            <%= f.text_field :phone_number, class:'form-control', placeholder:"電話番号" %>
+          </div>
+          <div class="space">
+            <%= f.submit"変更", class: "btn btn-primary" %>
+            <button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
+          </div>
+      <% end %>
     </div>
-  <% end %>
-  <h2 align="center">店舗情報編集</h2>
-    <%= form_for [:maker, @shop] do |f| %>
-    <div class="profile-text panel panel-primary box-shadow">
-      <div class="form-inline">
-      <h3>店舗名</h3>
-      <span><%= f.text_field :name, class:'form-control', placeholder:"※空欄不可" %></span>
-      <h3>店舗名（フリガナ）</h3>
-      <%= f.text_field :name_hurigana, class:'form-control', placeholder:"全角カタカナ" %>
-        <h3>郵便番号</h3>
-        <%= f.text_field :postal_code, class:'form-control', placeholder:"郵便番号" %>
-        </div>
-      <h3>住所</h3>
-      <%= f.text_field :street_address, class:'form-control', placeholder:"住所" %>
-      <h3>電話番号</h3>
-      <%= f.text_field :phone_number, class:'form-control', placeholder:"電話番号" %>
-      <br>
-
-      <%= f.submit"変更", class: "btn btn-primary" %>
-      <button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
-      <br>
-      <br>
-    </div>
-  <% end %>
+  </div>
 </div>

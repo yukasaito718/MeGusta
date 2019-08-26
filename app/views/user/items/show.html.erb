@@ -72,7 +72,7 @@
 						<div class="item_text">
 							<div class="space">
 								<span class="item_name">メーカー名：</span>
-								<% @item.maker.name %>
+								<%= @item.maker.name %>
 							</div>
 							<div class="space">
 								<span class="item_name"></span>
@@ -95,13 +95,32 @@
 								</div>
 								<% end %>
 							</div>
+							<iframe width="600" height="450" frameborder="0" style="border:0" src="https://maps.google.co.jp/maps?output=embed&q=:#{@item.maker.street_adress}">
+							</iframe>
+
+
+
+
+<!-- 								<div id="map" style='width: 100%; height: 500px;'></div>
+								<script type="text/javascript">
+									handler = Gmaps.build('Google');
+									handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+									  markers = handler.addMarkers([
+									    {
+									      "lat": <%= @maker.latitude %>,
+									      "lng": <%= @maker.longitude %>,
+										  "infowindow": '<p><%= @maker.name %></p><p><%= @maker.street_address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@maker.latitude},#{@maker.longitude}&iwloc=J",target: "_blank" %></p>'
+									    }
+									  ]);
+									  handler.bounds.extendWith(markers);
+									  handler.fitMapToBounds();
+									  handler.getMap().setZoom(17);
+									});
+								</script> -->
+
 						</div>
 					</div>
 				</div>
-
-
-
-
 			<!-- コメントのbox-->
 				<div class="item_show_box">
 					<div class="item_show_textbox">
@@ -109,7 +128,7 @@
 						<div class ="ander-line"></div>
 						<div class="item_text ">
 							<div class="space">
-								<div id="comments_area ">
+								<div id="comments_area">
 					      		<!-- 投稿されたコメント一覧を詳細ページに表示するためのrender -->
 					      			<%= render partial: 'user/comments/index', locals: { comments: @comments } %>
 					    		</div>

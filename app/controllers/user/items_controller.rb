@@ -22,5 +22,10 @@ class User::ItemsController < ApplicationController
 		@shop = Shop.new
 		@shops = @item.shops
 		@categories = Category.all
+		@maker = Maker.find(params[:id])
 	end
+
+	def shop_params
+      params.require(:shop).permit(:street_address, :latitude, :longitude)
+    end
 end

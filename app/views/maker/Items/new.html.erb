@@ -10,7 +10,7 @@
               </div>
             <div class="space">
               <span class="item_name">商品紹介：</span>
-              <%= f.text_area :introduction, class:'form-control', :placeholder => "商品の特徴について入力　セールスポイントなど " %>
+              <%= f.text_field :introduction, class:'form-control', :placeholder => "商品の特徴について入力　セールスポイントなど " %>
             </div>
             <div class="space">
               <span class="item_name">販売価格：</span>
@@ -73,9 +73,6 @@
               <span class="item_name">取扱店舗選択：</span><br>
                 <%= f.collection_check_boxes(:shop_ids, Shop.all, :id, :name) do |shop| %>
                   <%= shop.label {shop.check_box + shop.text} %>
-<!--                       <%= shop.check_box %>
-                      <%= shop.text %>
-                  <%# end %> -->
                 <% end %>
             </div>
 

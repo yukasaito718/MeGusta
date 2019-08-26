@@ -15,14 +15,13 @@ class Maker::ItemsController < ApplicationController
     def create  #投稿保存#form_forの情報がやってくるアクション
 		@item = Item.new(item_params)
 		@item.maker_id = current_maker.id
-		# binding.pry
 		if @item.save!
             flash[:notice] = "商品登録に成功しました。"
     		redirect_to makerpage_path
 		else
 			flash[:notice] = "登録内容
 			に不備があります。再度入力をお願いいたします。"
-            redirect_to root_path
+            redirect_to makerpage_path
         end
 	end
 

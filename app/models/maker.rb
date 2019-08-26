@@ -6,4 +6,8 @@ class Maker < ApplicationRecord
 	has_many :items
 	has_many :shops
 	attachment :image
+
+	geocoded_by :street_address
+	after_validation :geocode
+
 end

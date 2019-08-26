@@ -72,3 +72,5 @@ gem "pry-rails"
 gem "font-awesome-rails"
 gem "jquery-slick-rails"
 gem 'counter_culture'
+gem "gmaps4rails"
+gem "geocoder"

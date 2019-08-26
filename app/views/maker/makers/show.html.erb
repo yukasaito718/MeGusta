@@ -51,12 +51,13 @@
 		<div class="item_text">
 			<% @shops.each do |shop| %>
 				<div class="space">
-					<span class="item_name">電話番号：</span>
-					<%= shop.name %>
-					<%= link_to "編集",edit_maker_shop_path(shop.id) %>
-					<%= link_to "削除",maker_shop_path(shop.id),method: :delete %>
+					<span class="item_name">店舗名：</span>
+					<%= shop.name %><br>
+					<%= link_to "編集",edit_maker_shop_path(shop.id), class: "btn btn-success" %>
+					<%= link_to "削除",maker_shop_path(shop.id), class: "btn btn-danger",method: :delete %>
 			<% end %>
 				</div>
+				<%= link_to "店舗新規登録",new_maker_shop_path, class: "btn btn-primary" %>
 		</div>
 	</div>
 </div>
