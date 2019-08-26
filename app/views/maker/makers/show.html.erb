@@ -44,8 +44,19 @@
 		</div>
 	</div>
 </div>
-
-<% @shops.each do |shop| %>
-	<%= shop.name %>
-	<%= link_to "編集",edit_maker_shop_path(shop.id) %>
-<% end %>
+<div class="item_show_box">
+	<div class="item_show_textbox">
+		<h2 class="rank_text_color">SHOPS</h2>
+		<div class ="ander-line"></div>
+		<div class="item_text">
+			<% @shops.each do |shop| %>
+				<div class="space">
+					<span class="item_name">電話番号：</span>
+					<%= shop.name %>
+					<%= link_to "編集",edit_maker_shop_path(shop.id) %>
+					<%= link_to "削除",maker_shop_path(shop.id),method: :delete %>
+			<% end %>
+				</div>
+		</div>
+	</div>
+</div>

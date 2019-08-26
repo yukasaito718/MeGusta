@@ -34,11 +34,16 @@ class Maker::ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		if @item.update(item_params)
 			flash[:notice] = "編集内容を更新しました。"
-			redirect_to makerpage_path(current_maker)
+			redirect_to makerpage_path
 		else
 			flash[:notice] = "編集の更新に失敗しました"
-			redirect_to makerpage_edit_path(current_maker)
+			redirect_to makerpage_edit_path
 		end
+	end
+	def destroy
+		item = Item.find(params[:id])
+		item.destroy
+		redirect_to makerpage_path
 	end
 
 	private

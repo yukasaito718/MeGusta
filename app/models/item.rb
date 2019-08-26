@@ -14,6 +14,14 @@ class Item < ApplicationRecord
 	has_many :shop_items
 	has_many :shops, through: :shop_items
 
+  	validates :item_name, presence: true, length: { maximum: 25 }
+   	validates :introduction, presence: true, length: { maximum: 30 }
+ 	validates :count, presence: true, format: { with: /\A[0-9]+\z/, message: "半角数字のみが使用できます" }
+  	validates :price, presence: true, numericality: { only_integer: true }
+  	validates :freshness_date, presence: true, length: { maximum: 25 }
+
+
+
 
 	#現在のユーザーがいいねしてたらtrueを返す
 	def iine?(user)

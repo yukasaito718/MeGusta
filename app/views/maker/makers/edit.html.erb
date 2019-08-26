@@ -9,7 +9,7 @@
 		<h2 class="rank_text_color">PROFILE　EDIT</h2>
 		<div class ="ander-line"></div>
 		<div class="item_text">_
-			<%= form_for current_maker do |f| %>
+			<%= form_for current_maker,url: maker_maker_path(current_maker) do |f| %>
 				<div class="space">
 					<span class="item_name">会社名・事業名：</span>
 					<%= f.text_field :name, class:'form-control', placeholder:"※空欄不可" %>

@@ -7,4 +7,16 @@ class User < ApplicationRecord
     has_many :items, through: :commets
     has_many :comments, dependent: :destroy
     has_many :favorites, dependent: :destroy
-end
+
+	validates :name, presence: true
+	validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ヶー一-龠]+\z/, message: "全角文字のみが使用できます" }
+	validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶー一-龠]+\z/, message: "全角文字のみが使用できます" }
+	validates :last_name_katakana, presence: true, format: { with: /\A[ア-ン゛゜ァ-ォャ-ョー「」、]+\z/, message: "全角カタカナのみが使用できます" }
+	validates :first_name_katakana, presence: true, format: { with: /\A[ア-ン゛゜ァ-ォャ-ョー「」、]+\z/, message: "全角カタカナのみが使用できます" }
+	validates :street_address, presence: true
+	validates :postal_code, presence: true, format: { with: /\A[0-9]+\z/, message: "半角数字のみが使用できます" }
+  	validates :freshness_date, presence: true, length: { maximum: 25 }
+	validates :phone_number, presence: true, length: { maximum: 11 }
+
+
+  end

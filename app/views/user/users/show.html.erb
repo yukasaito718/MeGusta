@@ -46,7 +46,7 @@
 				</div>
 				<div class="item_show_box">
 					<div class="item_show_textbox">
-						<h2 class="rank_text_color">MY FAVORITE</h2>
+						<h2 class="rank_text_color">FAVORITES</h2>
 						<div class ="ander-line"></div>
 						<div class="item_text">
 							<div class="space">
@@ -65,17 +65,17 @@
 				</div>
 				<div class="item_show_box">
 					<div class="item_show_textbox">
-						<h2 class="rank_text_color">MY CMMENTS</h2>
+						<h2 class="rank_text_color">COMMENTS</h2>
 						<div class ="ander-line"></div>
 						<div class="item_text">
 							<div class="space">
 								<ul>
 									<% @comments.each do |comment| %>
 									<li>
-										<%= link_to item_path(comment.item) do %>
-											<%= comment.item.item_name %>
+										<%# link_to item_path(comment.item) do %>
+											<%# comment.item.item_name %>
 									</li>
-										<% end %>
+										<%# end %>
 									<% end %>
 								</ul>
 							</div>

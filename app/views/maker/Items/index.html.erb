@@ -28,6 +28,7 @@
 				<%= link_to edit_maker_item_path(maker_item) do %>
 				<p>編集する</p>
 				<% end %>
+				<%= link_to "削除",maker_item_path(maker_item),method: :delete %>
 			</div>
 		<% end %>
 	</div>

@@ -17,7 +17,7 @@ class User::ItemsController < ApplicationController
 	end
 	def show
 		@item = Item.find(params[:id])
-		@comment = Comment.new 
+		@comment = Comment.new
 		@comments = @item.comments
 		@shop = Shop.new
 		@shops = @item.shops

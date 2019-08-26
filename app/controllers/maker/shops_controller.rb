@@ -7,9 +7,9 @@ class Maker::ShopsController < ApplicationController
 		@shop = Shop.new(shop_params)
 		@shop.maker_id = current_maker.id
 		if @shop.save
-			redirect_to makerpage_path(current_maker)
+			redirect_to makerpage_path
 		else
-			redirect_to makerpage_path(current_maker)
+			redirect_to makerpage_path
 		end
 	end
 	def edit
@@ -18,10 +18,15 @@ class Maker::ShopsController < ApplicationController
 	def update
 		@shop = Shop.find(params[:id])
 		if @shop.update(shop_params)
-			redirect_to makerpage_path(current_maker)
+			redirect_to makerpage_path
 		else
-			redirect_to makerpage_path(current_maker)
+			redirect_to makerpage_path
 		end
+	end
+	def destroy
+		shop = Shop.find(params[:id])
+		shop.destroy
+		redirect_to makerpage_path
 	end
 	def shop_params
 		params.require(:shop).permit(:name, :name_hurigana, :postal_code, :street_address, :phone_number, :maker_id )
