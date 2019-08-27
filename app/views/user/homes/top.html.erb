@@ -17,13 +17,13 @@
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<%= image_tag "test1.jpg",class:"img" %>
+				<%= image_tag "/images/test1.jpg",class:"img" %>
 			</div>
 			<div class="item">
-				<%= image_tag "test2.jpg",class:"img" %>
+				<%= image_tag "/images/test2.jpg",class:"img" %>
 			</div>
 			<div class="item">
-				<%= image_tag "test3.jpg",class:"img" %>
+				<%= image_tag "/images/test3.jpg",class:"img" %>
 			</div>
 		</div>
 		<a class="left carousel-control" href="#sampleCarousel" role="button" data-slide="prev">
@@ -44,7 +44,7 @@
 		<% @all_ranks.each.with_index(1) do |all_rank,i| %>
 			<%= link_to item_path(all_rank) do %>
 				<div class ="rank-textbox">
-					<%= attachment_image_tag all_rank, :image,  size: "200x200", fallback: "no_image.jpg", class:"items-contents-picture rank_shadow"%><br>
+					<%= attachment_image_tag all_rank, :image,  size: "200x200", fallback: "/images/no_image.jpg", class:"items-contents-picture rank_shadow"%><br>
 					<div class="rank_number"><%= i %></div>
 				</div>
 			<% end %>

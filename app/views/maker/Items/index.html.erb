@@ -23,8 +23,6 @@
 	<div class="item_box_center clearfix">
 		<% @maker_items.each do |maker_item| %>
 			<div class="msr_box01">
-			<!-- <div class="item-contents"> -->
-				<%# attachment_image_tag maker.item, :image,  size: "200x200", fallback: "no_image.jpg", class:"items-contents-picture" %>
 				<h3 class="ttl"></h3>
 				<p><%= maker_item.item_name %></p>
 				<%= link_to edit_maker_item_path(maker_item) do %>

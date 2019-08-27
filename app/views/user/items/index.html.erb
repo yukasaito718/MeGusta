@@ -15,7 +15,7 @@
 			<div class="msr_box01">
 				<%= link_to item_path(item.id),id:"style" do %>
 			<!-- <div class="item-contents"> -->
-				<%= attachment_image_tag item, :image,  size: "200x200", fallback: "no_image.jpg", class:"items-contents-picture" %>
+				<%= attachment_image_tag item, :image,  size: "200x200", fallback: "/images/no_image.jpg", class:"items-contents-picture" %>
 				<h3 class="ttl"><%= item.item_name %></h3>
 				<p><%= item.maker.name %></p>
 				<!-- <div id="item-<%= item.id%>"> -->
