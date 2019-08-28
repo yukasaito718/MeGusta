@@ -325,6 +325,7 @@ background-color: #fff;
   border-radius: 10px;
   margin:5px 5px;
   padding: 5px 5px;
+  position: relative;
 }
 .msr_box01 .style{
   width:250px;
@@ -394,7 +395,7 @@ background-color: #fff;
   padding-top: 5px;
   border:solid 2px #fff;
   border-radius: 50px;
-  background-color: #bf9d4d;
+  background-color: #fff;
   color:gray;
 }
 .rank_text_color{
@@ -575,7 +576,7 @@ display:none;
   margin:0 auto;
   padding:30px;
   height: 500px;
-  background-color:#E5E5E5;
+  background-color:#999999;
   margin-top: 60px;
   margin-bottom: 40px;
 }
@@ -588,15 +589,15 @@ display:none;
   margin:5px 5px 5px 5px;
   font-weight: bold;
   text-align: center;
-  background-color: #808080;
+  background-color: #fff;
   float: left;
-  color:#fff;
+  color:#000;
 
 }
 .tag_text_box:hover{
-  background-color: #fff;
+  background-color: #dbb34d;
   box-shadow: 10px 10px 15px -10px;
-  color: #808080;
+  color: #fff;
 }
 .tag_box_center{
   width: 90%;
@@ -607,8 +608,8 @@ display:none;
   width: 100%;
   text-align: center;
   margin:0 auto;
-  padding:10px 0px 10px 0 ;
-  background-color:#E5E5E5;
+  padding:10px 0px 30px 0 ;
+  background-color:#D8D8D8;
   margin-top: 60px;
   margin-bottom: 40px;
 }
@@ -621,7 +622,7 @@ display:none;
 .ander-line{
   width: 50px;
   border:box;
-  border:2px solid #FFEABF;
+  border:2px solid #dbb34d;
   margin: 0 auto;
   margin-bottom: 10px;
 }
@@ -644,8 +645,8 @@ h2{
 .item_show_textbox{
   width: 80%;
   margin:0 auto;
-  background-color: #E5E5E5;
-  padding: 20px;
+  background-color: #D8D8D8;
+  padding: 30px 40px;
 }
 .item_text{
   width:90%;
@@ -674,4 +675,23 @@ ul {
 }
 iframe{
 
+}
+/*メーカーの詳細ページ店舗登録画面*/
+.buttun_center{
+  width: 100%;
+  padding-top: 20px;
+}
+
+.position{
+  position: absolute;
+  top:60%;
+  right: 10%;
+}
+.logout{
+  border:box;
+  border:solid 2px;
+  padding:5px;
+}
+.logout .humberger{
+  width: 20%;
 }
