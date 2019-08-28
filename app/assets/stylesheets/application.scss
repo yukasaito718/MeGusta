@@ -674,19 +674,15 @@ ul {
   list-style: none;
 }
 iframe{
-
 }
 /*メーカーの詳細ページ店舗登録画面*/
 .buttun_center{
   width: 100%;
   padding-top: 20px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.position{
-  position: absolute;
-  top:60%;
-  right: 10%;
-}
 .logout{
   border:box;
   border:solid 2px;

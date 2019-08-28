@@ -42,7 +42,7 @@
 			<%= link_to item_path(all_rank) do %>
 				<div class ="rank-textbox">
 					<%= attachment_image_tag all_rank, :image,  size: "200x200", fallback: "/images/no_image.jpg", class:"items-contents-picture rank_shadow"%><br>
-					<div class="rank_number"><%= i %></div>		
+					<div class="rank_number"><%= i %></div>
 					<%= render "user/favorites/favorite", item: all_rank %>
 				</div>
 			<% end %>
