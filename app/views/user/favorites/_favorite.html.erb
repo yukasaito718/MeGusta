@@ -8,21 +8,21 @@
       <% if item.iine?(current_user) %>
         <%# ログインしてるユーザがいいねしている場合 %>
         <%= form_for([item, Favorite.find_by(item: item.id, user_id: current_user.id)], method: :delete, remote: true) do |f| %>
-        <%= button_tag(class: "btn btn-default btn-xs") do %>
+        <%= button_tag(class: "btn btn-default btn-xs",class:"position") do %>
           <%= content_tag :span, "#{item.favorites_count}", class: "glyphicon glyphicon-heart" ,style:"color: red;"%>
           <% end %>
         <% end %>
       <% else %>
         <%# ログインしてるユーザがいいねしてない場合 %>
         <%= form_for([item, Favorite.new], remote: true) do |f| %>
-        <%= button_tag(class: "btn btn-default btn-xs") do %>
+        <%= button_tag(class: "btn btn-default btn-xs",class:"position") do %>
           <%= content_tag :span, "#{item.favorites_count}", class: "glyphicon glyphicon-heart-empty" %>
           <% end %>
         <% end %>
       <% end %>
     <% else %>
     <%# メーカーでログインしている場合またはログインしていない場合 %>
-      <span>♡</span>
+      <span class="position">♡</span>
       <%= item.favorites_count %>
     <% end %>
   </div>

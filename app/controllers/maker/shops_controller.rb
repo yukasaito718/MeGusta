@@ -6,9 +6,11 @@ class Maker::ShopsController < ApplicationController
 	def create
 		@shop = Shop.new(shop_params)
 		@shop.maker_id = current_maker.id
-		if @shop.save
+		if @shop.save!
+			flash[:notice] = "登録しました。"
 			redirect_to makerpage_path
 		else
+			flash[:notice] = "登録に不備があり、登録できませんでした。"
 			redirect_to makerpage_path
 		end
 	end
@@ -18,8 +20,10 @@ class Maker::ShopsController < ApplicationController
 	def update
 		@shop = Shop.find(params[:id])
 		if @shop.update(shop_params)
+			flash[:notice] = "内容を更新しました。"
 			redirect_to makerpage_path
 		else
+			flash[:notice] = "更新できませんでした。"
 			redirect_to makerpage_path
 		end
 	end
