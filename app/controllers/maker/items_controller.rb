@@ -48,6 +48,6 @@ class Maker::ItemsController < ApplicationController
 	private
 
 	def item_params
-		params.require(:item).permit(:item_name, :price, :count, :url, :is_sold, :image, :maker_id, :is_refrigeration, :is_packaged, :freshness_date, category_ids: [], shop_ids: [])
+		params.require(:item).permit(:item_name, :price, :count, :url, :is_sold, :image, :maker_id, :is_refrigeration, :is_packaged, :freshness_date, :introduction, category_ids: [], shop_ids: [])
 	end
 end
