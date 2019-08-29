@@ -26,7 +26,7 @@
 }
 .clearfix::after {
   content: "";
-  display: block;
+  display: block; 
   clear: both;
 }
 /*font
@@ -322,10 +322,11 @@ background-color: #fff;
   background-color: #fff;
   width: 210px;
   float:left;
-  border-radius: 10px;
-  margin:5px 5px;
-  padding: 5px 5px;
+  margin: 5px 0 5px 0;
   position: relative;
+}
+.msr_box01:hover{
+  border:solid 0.5px #000;
 }
 .msr_box01 .style{
   width:250px;
@@ -613,9 +614,11 @@ display:none;
   margin-top: 60px;
   margin-bottom: 40px;
 }
+
 .item_box_center{
-  width: 90%;
   margin: 0 auto;
+  width: 93%;
+  padding:30px 0 30px 0;
 }
 /*アンダーライン　装飾系
 */
@@ -690,4 +693,23 @@ iframe{
 }
 .logout .humberger{
   width: 20%;
+}
+/*全体ログイン修正
+*/
+.maru_ue{
+  border-radius: 10px 10px 0 0;
+}
+.maru_sita{
+  border-radius: 0 0 10px 10px;
+  padding-bottom: 60px;
+}
+.maru_kado{
+  border-radius:10px;
+  padding-bottom: 60px;
+}
+.items_all{
+  width:90%;
+  background-color: #fff;
+  margin:0 auto;
+  border-radius: 20px;
 }
