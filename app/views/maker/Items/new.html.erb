@@ -75,7 +75,7 @@
               </div>
             <div class="space">
               <span class="item_name">取扱店舗選択：</span><br>
-                <%= f.collection_check_boxes(:shop_ids, Shop.all, :id, :name) do |shop| %>
+                <%= f.collection_check_boxes(:shop_ids, current_maker.shops, :id, :name) do |shop| %>
                   <%= shop.label {shop.check_box + shop.text} %>
                 <% end %>
             </div>
