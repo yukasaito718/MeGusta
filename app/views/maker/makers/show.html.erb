@@ -53,8 +53,10 @@
 				<div class="space">
 					<span class="item_name">店舗名：</span>
 					<%= shop.name %><br>
+				<div class ="buttun_center">
 					<%= link_to "編集",edit_maker_shop_path(shop.id), class: "btn btn-success" %>
 					<%= link_to "削除",maker_shop_path(shop.id), class: "btn btn-danger",method: :delete %>
+				</div>
 			<% end %>
 				<div class ="buttun_center">
 					<%= link_to "店舗新規登録画面",new_maker_shop_path, class: "btn btn-primary" %>
