@@ -7,26 +7,28 @@
 	<% else %><!-- 空欄でなければ検索ワード＋に関連する商品一覧を表示 -->
 		<p class="search-notice"><%= "「" + params[:keywords] + "」" + "に関連する商品一覧"%></p>
 	<% end %>
-<div class="item_index_box">
+<div class="item_index_box maru_kado">
 	<h2 class="rank_text_color">ITEMS</h2>
 	<div class ="ander-line"></div>
-	<div class="item_box_center clearfix">
-		<% @items.each do |item| %>
-			<div class="msr_box01">
-				<%= link_to item_path(item.id),id:"style" do %>
-			<!-- <div class="item-contents"> -->
-				<%= attachment_image_tag item, :image,  size: "200x200", fallback: "/images/no_image.jpg", class:"items-contents-picture" %>
-				<h3 class="ttl"><%= item.item_name %></h3>
-				<p><%= item.price %>円（税別）</p>
-				<!-- <div id="item-<%= item.id%>"> -->
-				<!-- </div> -->
+	<div class="items_all">
+		<div class="item_box_center clearfix">
+			<% @items.each do |item| %>
+				<div class="msr_box01">
+					<%= link_to item_path(item.id),id:"style" do %>
+				<!-- <div class="item-contents"> -->
+					<%= attachment_image_tag item, :image,  size: "200x200", fallback: "/images/no_image.jpg", class:"items-contents-picture" %>
+					<h2 class="ttl"><%= item.item_name %></h2>
+					<span><%= item.price %>円（税別）</span>
+					<span><%= render "user/favorites/favorite", item: item %></span>
+					<!-- <div id="item-<%= item.id%>"> -->
+					<!-- </div> -->
 
-				<% end %>
-				<%= render "user/favorites/favorite", item: item %>
-			</div>
-		<% end %>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
 	</div>
-	<%= paginate @post_images, class: "paginate" %>
+	<%= paginate @items, class: "paginate" %>
 </div>
 
 </div>

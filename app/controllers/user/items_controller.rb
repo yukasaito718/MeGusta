@@ -8,12 +8,13 @@ class User::ItemsController < ApplicationController
 		end
 		#カテゴリーIDが渡ってきたら紐づいたitem_idを取り出す
 		@items = if params[:category_id]
-					Category.find(params[:category_id]).items
+					Category.find(params[:category_id])
 				 else
-				 	Item.search(keywords)
+				 	Kaminari.paginate_array(Item.search(keywords)).page(params[:page]).per(16)
+				 	#Item.search(keywords).page(params[:page]).per(5).reverse_order
 				 end
 		@categories = Category.all
-		@post_images = Item.all.page(params[:page]).reverse_order
+
 	end
 	def show
 		@item = Item.find(params[:id])
@@ -24,6 +25,7 @@ class User::ItemsController < ApplicationController
 		@categories = Category.all
 	end
 
+	private
 	def shop_params
       params.require(:shop).permit(:street_address, :latitude, :longitude)
     end
