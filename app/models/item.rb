@@ -28,7 +28,6 @@ class Item < ApplicationRecord
 		iine_users.include?(user)
 	end
 
-
 	#検索用メソッド
 	def self.search(keywords)
 		if keywords.present?#もしあったら
