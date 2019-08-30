@@ -8,7 +8,7 @@ class User::ItemsController < ApplicationController
 		end
 		#カテゴリーIDが渡ってきたら紐づいたitem_idを取り出す
 		@items = if params[:category_id]
-					Category.find(params[:category_id])
+					Category.find(params[:category_id]).items.page(params[:page]).per(16)
 				 else
 				 	Kaminari.paginate_array(Item.search(keywords)).page(params[:page]).per(16)
 				 	#Item.search(keywords).page(params[:page]).per(5).reverse_order
