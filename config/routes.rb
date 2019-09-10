@@ -53,7 +53,9 @@ Rails.application.routes.draw do
 
  	# ユーザーのトップページ・マイページshow,editのルーティング
   root "user/homes#top"
+  get "user/homes/about" =>"user/homes#show"
   post '/user' => 'user/users#create'
+
   # メーカーのトップページ・マイページshow,editのルーティング
   get '/maker' => "maker/homes#top", as: 'maker_top'
   get "/makerpage" => 'maker/makers#show'
@@ -63,5 +65,6 @@ Rails.application.routes.draw do
 
   # 管理側のトップページルーティング
   get '/admin' => "admin/homes#top"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

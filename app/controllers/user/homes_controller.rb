@@ -5,4 +5,6 @@ class User::HomesController < ApplicationController
 		# @category_rank = Item.find(Category.group(:item_id)).order('favorite_count').limit(3).pluck(:item_id)
 		# @my_ranks = @all_ranks.select{ |note| note.user_id  }
 	end
+	def show
+	end
 end
