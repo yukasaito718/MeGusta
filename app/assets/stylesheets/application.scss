@@ -35,9 +35,6 @@
   font-family: "Objective","游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",sans-serif;
 }
 
-
-body {
-}
 /*ヘッダー
 */
 header {
@@ -78,10 +75,21 @@ header {
   margin: 0 20px;
 
 }
+body{
+    min-height: 100vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 120px;/*←footerの高さ*/
+    box-sizing: border-box;
+}
 footer{
+  width: 100%;
+  height: 100px;
   text-decoration: none;
   text-align: center;
   margin:0 auto;
+  padding: 30px 0;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
 }
 .icon-list{
   display: inline-block;
@@ -240,12 +248,7 @@ background-color: #fff;
   z-index: 1001;
 }
  
- 
-/* ------------------------ */
 /* -- ハンバーガースライドメニュー ---*/
-/* ------------------------ */
- 
- 
 /*  背景部分　position: fixed;⇒top:;とright:;で位置を指定,z-indexで最背面に設置*/
 #sp-menu {
   position: fixed;
@@ -713,4 +716,39 @@ iframe{
   background-color: #fff;
   margin:0 auto;
   border-radius: 20px;
+}
+
+/*aboutpage*/
+.about_position{
+  width:100%;
+  height: 600px;
+  position: relative;
+}
+.about_title {
+  width: 100px;
+  font-size: 90px;
+  position: absolute;
+  left: 20%;
+  bottom: 65%;
+  color:gray;
+  z-index: 100;
+}
+.about_main_visual{
+  width: 60%;
+  height: 500px;
+  margin-left:30%;
+  border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+  background-color: #f7f4ee;
+  position: relative;
+}
+.text_about{
+  color: gray;
+  position: absolute;
+  left: 25%;
+  bottom: 30%;
+}
+.about_font{
+  line-height: 2;
+  font-size: 15px;
+  font-family: serif;
 }
