@@ -50,27 +50,30 @@
 
           <% else %>
             <li class="list-item">
-              <span>ABOUT</span>
+              <%= link_to user_homes_about_path, class: "link-decoration" do %>
+                <span>ABOUT</span>
+              <% end %>
             </li>
             <li class="list-item">
               <%= link_to items_path, class: "link-decoration" do %>
-              <span>ITEMS</span>
+                <span>ITEMS</span>
               <% end %>
             </li>
             <li class="list-item">
               <%= link_to new_user_registration_path do %>
-              <span>SIGN-UP</span>
+                <span>SIGN-UP</span>
               <% end %>
             </li>
             <li class="list-item">
               <%= link_to new_user_session_path do %>
-              <span>SIGN-IN</span>
+                <span>SIGN-IN</span>
               <% end %>
             </li>
           <% end %>
         </ul>
       </div>
     </div>
+
 <!-- ハンバーガーメニュー -->
       <div id="sp-menu">
         <h1>MENU</h1>
