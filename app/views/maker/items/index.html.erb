@@ -1,34 +1,34 @@
 <% if flash[:notice] %>
-	<p class="text-font notice"><%= flash[:notice] %></p>
+<p class="text-font notice"><%= flash[:notice] %></p>
 <% end %>
-	<% if params[:keywords].blank? %><!--もし検索ワードが空欄（スペース含む）ならタイトルだけ表示-->
-	<% else %><!-- 空欄でなければ検索ワード＋に関連する商品一覧を表示 -->
-		<p class="search-notice"><%= "「" + params[:keywords] + "」" + "に関連する商品一覧"%></p>
-	<% end %>
-	<% if flash[:notice] %>
-    	<div class="alert alert-danger">
-		<%= flash[:notice] %>
-		</div>
-	<% end %>
+<% if params[:keywords].blank? %><!--もし検索ワードが空欄（スペース含む）ならタイトルだけ表示-->
+<% else %><!-- 空欄でなければ検索ワード＋に関連する商品一覧を表示 -->
+<p class="search-notice"><%= "「" + params[:keywords] + "」" + "に関連する商品一覧"%></p>
+<% end %>
+<% if flash[:notice] %>
+<div class="alert alert-danger">
+	<%= flash[:notice] %>
+</div>
+<% end %>
 
 <div class="items">
 	<% if params[:keywords].blank? %><!--もし検索ワードが空欄（スペース含む）ならタイトルだけ表示-->
 	<% else %><!-- 空欄でなければ検索ワード＋に関連する商品一覧を表示 -->
-		<p class="search-notice"><%= "「" + params[:keywords] + "」" + "に関連する商品一覧"%></p>
+	<p class="search-notice"><%= "「" + params[:keywords] + "」" + "に関連する商品一覧"%></p>
 	<% end %>
 	<div class="item_index_box">
 		<h2 class="rank_text_color">ITEMS</h2>
 		<div class ="ander-line"></div>
 		<div class="item_box_center clearfix">
 			<% @maker_items.each do |maker_item| %>
-				<div class="msr_box01">
-					<h3 class="ttl"></h3>
-					<p><%= maker_item.item_name %></p>
-					<%= link_to edit_maker_item_path(maker_item) do %>
-					<p>編集する</p>
-					<% end %>
-					<%= link_to "削除",maker_item_path(maker_item),method: :delete %>
-				</div>
+			<div class="msr_box01">
+				<h3 class="ttl"></h3>
+				<p><%= maker_item.item_name %></p>
+				<%= link_to edit_maker_item_path(maker_item) do %>
+				<p>編集する</p>
+				<% end %>
+				<%= link_to "削除",maker_item_path(maker_item),method: :delete %>
+			</div>
 			<% end %>
 		</div>
 	</div>
