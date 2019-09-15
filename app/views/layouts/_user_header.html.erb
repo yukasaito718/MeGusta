@@ -3,129 +3,129 @@
 
 <main class="clearfix">
   <header class="clearfix">
-  <!--   サイトタイトル-->
-  <% if maker_signed_in? %>
-       <%= link_to maker_top_path do%>
-          <span class="TopIcon">M</span>
-       <% end %>
-  <% else %>
-       <%= link_to root_path do%>
-          <span class="TopIcon">M</span>
-       <% end %>
-  <% end %>
-<link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada rel"=stylesheet>
-  <div class ="top-title">
-    <h1>MEGUSTA</h1>
-    <div class="top_under_line"></div>
-  </div>
+    <!--   サイトタイトル-->
+    <% if maker_signed_in? %>
+    <%= link_to maker_top_path do%>
+    <span class="TopIcon">M</span>
+    <% end %>
+    <% else %>
+    <%= link_to root_path do%>
+    <span class="TopIcon">M</span>
+    <% end %>
+    <% end %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada rel"=stylesheet>
+    <div class ="top-title">
+      <h1>MEGUSTA</h1>
+      <div class="top_under_line"></div>
+    </div>
     <div class =header-link >
       <div class="header-list">
         <ul class="link-list">
 
           <% if user_signed_in? %>
-            <li class="list-item">
-              <span>ABOUT</span>
-            </li>
-            <li class="list-item">
-              <%= link_to items_path, class: "link-decoration" do %>
-              <span>ITEMS</span>
-              <% end %>
-            </li>
-            <li class="list-item">
-              <%= link_to mypage_path, class: "link-decoration" do %>
-              <span>MYPAGE</span>
-              <% end %>
-            </li>
-            <li class="list-item">
-              <%= link_to destroy_user_session_path, method: :delete do %>
-              <span class="logout">LOG-OUT</span>
-              <% end %>
-            </li>
+          <li class="list-item">
+            <span>ABOUT</span>
+          </li>
+          <li class="list-item">
+            <%= link_to items_path, class: "link-decoration" do %>
+            <span>ITEMS</span>
+            <% end %>
+          </li>
+          <li class="list-item">
+            <%= link_to mypage_path, class: "link-decoration" do %>
+            <span>MYPAGE</span>
+            <% end %>
+          </li>
+          <li class="list-item">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <span class="logout">LOG-OUT</span>
+            <% end %>
+          </li>
 
           <% elsif maker_signed_in? %>
-            <li class="list-item"><%= link_to "マイページ", makerpage_path %></li>
-            <li class="list-item"><%= link_to "新規商品登録", new_maker_item_path %></li>
-            <li class="list-item"><%= link_to "商品一覧ページ", maker_items_path %></li>
-            <li class="list-item"><%= link_to "ログアウト", destroy_maker_session_path, method: :delete %></li>
+          <li class="list-item"><%= link_to "マイページ", makerpage_path %></li>
+          <li class="list-item"><%= link_to "新規商品登録", new_maker_item_path %></li>
+          <li class="list-item"><%= link_to "商品一覧ページ", maker_items_path %></li>
+          <li class="list-item"><%= link_to "ログアウト", destroy_maker_session_path, method: :delete %></li>
 
           <% else %>
-            <li class="list-item">
-              <%= link_to user_homes_about_path, class: "link-decoration" do %>
-                <span>ABOUT</span>
-              <% end %>
-            </li>
-            <li class="list-item">
-              <%= link_to items_path, class: "link-decoration" do %>
-                <span>ITEMS</span>
-              <% end %>
-            </li>
-            <li class="list-item">
-              <%= link_to new_user_registration_path do %>
-                <span>SIGN-UP</span>
-              <% end %>
-            </li>
-            <li class="list-item">
-              <%= link_to new_user_session_path do %>
-                <span>SIGN-IN</span>
-              <% end %>
-            </li>
+          <li class="list-item">
+            <%= link_to user_homes_about_path, class: "link-decoration" do %>
+            <span>ABOUT</span>
+            <% end %>
+          </li>
+          <li class="list-item">
+            <%= link_to items_path, class: "link-decoration" do %>
+            <span>ITEMS</span>
+            <% end %>
+          </li>
+          <li class="list-item">
+            <%= link_to new_user_registration_path do %>
+            <span>SIGN-UP</span>
+            <% end %>
+          </li>
+          <li class="list-item">
+            <%= link_to new_user_session_path do %>
+            <span>SIGN-IN</span>
+            <% end %>
+          </li>
           <% end %>
         </ul>
       </div>
     </div>
 
-<!-- ハンバーガーメニュー -->
-      <div id="sp-menu">
-        <h1>MENU</h1>
-        <ul><!--ヘッダーリンク先-->
+    <!-- ハンバーガーメニュー -->
+    <div id="sp-menu">
+      <h1>MENU</h1>
+      <ul><!--ヘッダーリンク先-->
         <% if user_signed_in? %>
-                <li>
-                <%= link_to "ITEMS", items_path, class: "link-decoration" %>
-                </li>
-                <li><%= link_to "MY PAGE", mypage_path, class: "link-decoration" %></li>
-                <li><%= link_to "LOG-OUT", destroy_user_session_path, method: :delete, class: "link-decoration" %></li>
+        <li>
+          <%= link_to "ITEMS", items_path, class: "link-decoration" %>
+        </li>
+        <li><%= link_to "MY PAGE", mypage_path, class: "link-decoration" %></li>
+        <li><%= link_to "LOG-OUT", destroy_user_session_path, method: :delete, class: "link-decoration" %></li>
 
         <% elsif maker_signed_in? %>
-          <li><%= link_to "MAKER PAGE", makerpage_path %></li>
-          <li class="list-item"><%= link_to "商品一覧ページ", maker_items_path %></li>
-          <li><%= link_to "新規商品登録", new_maker_item_path %></li>
-          <li><%= link_to "ログアウト", destroy_maker_session_path, method: :delete %></li>
+        <li><%= link_to "MAKER PAGE", makerpage_path %></li>
+        <li class="list-item"><%= link_to "商品一覧ページ", maker_items_path %></li>
+        <li><%= link_to "新規商品登録", new_maker_item_path %></li>
+        <li><%= link_to "ログアウト", destroy_maker_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "ITEMS", items_path, class: "link-decoration" %></li>
-          <div class="toggle_wrap">
-            <div class="toggle_switch">
-              <p>ENTORY</p>
-            </div>
-            <div class="toggle_contents">
-              <ul>
-                <li><%= link_to "口コミ会員登録", new_user_registration_path, class: "link-decoration" %></li>
-                <li><%= link_to "口コミ会員ログイン", new_user_session_path, class: "link-decoration" %></li>
-                <li><%= link_to "メーカー会員登録", new_maker_registration_path, class: "link-decoration" %></li>
-                <li><%= link_to "メーカーログイン", new_maker_session_path, class: "link-decoration" %></li>
-              </ul>
-            </div>
+        <li><%= link_to "ITEMS", items_path, class: "link-decoration" %></li>
+        <div class="toggle_wrap">
+          <div class="toggle_switch">
+            <p>ENTORY</p>
           </div>
-        <% end %>
-        </ul>
-      </div>
-    <div id="hm-icon">
-      <a class="menu-trigger" href="">
-      <span></span>
-      <span></span>
-      <span></span>
-      </a>
-    </div>
-                 <!--   検索フォーム -->
-        <div class="search-content-box">
-          <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-          <div class="inner">
-          <%= form_tag items_path,id:"searchform", method: :get do %>
-          <%= text_field_tag :keywords, '',{class:'search',id:'text',type:'text',placeholder:'検索キーワード'} %>
-          <%= submit_tag '' ,id:"submit", :item_name => nil %>
-          <% end %>
-          <a href="#" class="search-btn"><i class="fa fa-search search-color"></i></a><!--虫眼鏡アイコン -->
+          <div class="toggle_contents">
+            <ul>
+              <li><%= link_to "口コミ会員登録", new_user_registration_path, class: "link-decoration" %></li>
+              <li><%= link_to "口コミ会員ログイン", new_user_session_path, class: "link-decoration" %></li>
+              <li><%= link_to "メーカー会員登録", new_maker_registration_path, class: "link-decoration" %></li>
+              <li><%= link_to "メーカーログイン", new_maker_session_path, class: "link-decoration" %></li>
+            </ul>
           </div>
         </div>
-</header>
+        <% end %>
+      </ul>
+    </div>
+    <div id="hm-icon">
+      <a class="menu-trigger" href="">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+    <!--   検索フォーム -->
+    <div class="search-content-box">
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+      <div class="inner">
+        <%= form_tag items_path,id:"searchform", method: :get do %>
+        <%= text_field_tag :keywords, '',{class:'search',id:'text',type:'text',placeholder:'検索キーワード'} %>
+        <%= submit_tag '' ,id:"submit", :item_name => nil %>
+        <% end %>
+        <a href="#" class="search-btn"><i class="fa fa-search search-color"></i></a><!--虫眼鏡アイコン -->
+      </div>
+    </div>
+  </header>
 
 </main>
