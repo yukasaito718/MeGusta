@@ -1,5 +1,5 @@
 <% if flash[:notice] %>
-	<p class="text-font notice"><%= flash[:notice] %></p>
+<p class="text-font notice"><%= flash[:notice] %></p>
 <% end %>
 
 <div class="item_show_box">
@@ -44,24 +44,25 @@
 		</div>
 	</div>
 </div>
+
 <div class="item_show_box">
 	<div class="item_show_textbox">
 		<h2 class="rank_text_color">SHOPS</h2>
 		<div class ="ander-line"></div>
 		<div class="item_text">
 			<% @shops.each do |shop| %>
-				<div class="space">
-					<span class="item_name">店舗名：</span>
-					<%= shop.name %><br>
+			<div class="space">
+				<span class="item_name">店舗名：</span>
+				<%= shop.name %><br>
 				<div class ="buttun_center">
 					<%= link_to "編集",edit_maker_shop_path(shop.id), class: "btn btn-success" %>
 					<%= link_to "削除",maker_shop_path(shop.id), class: "btn btn-danger",method: :delete %>
 				</div>
-			<% end %>
+				<% end %>
 				<div class ="buttun_center">
 					<%= link_to "店舗新規登録画面",new_maker_shop_path, class: "btn btn-primary" %>
 				</div>
-				</div>
+			</div>
 		</div>
 	</div>
 </div>
