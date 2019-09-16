@@ -1,13 +1,14 @@
 class Maker::ItemsController < ApplicationController
 	before_action :authenticate_maker!
+
 	def index
 		if params[:tag]
-		@items = Item.tagged_with(params[:tag])
+			@items = Item.tagged_with(params[:tag])
 		else
-		@items = Item.all
+			@items = Item.all
 		end
-		maker =current_maker
-		@maker_items = maker.items
+			maker =current_maker
+			@maker_items = maker.items
 	end
 	def new
 		@item = Item.new
@@ -24,7 +25,6 @@ class Maker::ItemsController < ApplicationController
             redirect_to makerpage_path
         end
 	end
-
 	def edit
 		@item = Item.find(params[:id])
 	end

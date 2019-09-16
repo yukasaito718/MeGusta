@@ -1,4 +1,5 @@
 class User::ItemsController < ApplicationController
+
 	def index
 		# keywords = params[:keywords] ? params[:keywords].split : ""
 		if params[:keywords]
@@ -6,6 +7,7 @@ class User::ItemsController < ApplicationController
 		else
 			keywords = ""
 		end
+
 		#カテゴリーIDが渡ってきたら紐づいたitem_idを取り出す
 		@items = if params[:category_id]
 					Category.find(params[:category_id]).items.page(params[:page]).per(16)
@@ -14,8 +16,8 @@ class User::ItemsController < ApplicationController
 				 	#Item.search(keywords).page(params[:page]).per(5).reverse_order
 				 end
 		@categories = Category.all
-
 	end
+
 	def show
 		@item = Item.find(params[:id])
 		@comment = Comment.new

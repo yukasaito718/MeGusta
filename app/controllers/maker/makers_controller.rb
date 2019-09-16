@@ -6,18 +6,16 @@ class Maker::MakersController < ApplicationController
 		@shop = Shop.new
 		@shops = @maker.shops
 	end
-
 	def edit
 		@maker = current_maker
 	end
-
 	def update
 		@maker = Maker.find(current_maker.id)
 		flag = params[:is_deleted]
   	  	if flag == 'false'
-  	  	@maker.update_attribute(:is_deleted, params[:is_deleted])
-  	  	sign_out_and_redirect(current_maker)
-  	  	flash[:notice] = "退会しました。またのご利用をお待ちしております！"
+  	  		@maker.update_attribute(:is_deleted, params[:is_deleted])
+  	  		sign_out_and_redirect(current_maker)
+  	  		flash[:notice] = "退会しました。またのご利用をお待ちしております！"
   	  	else
 	  	  	@maker = Maker.find(current_maker.id)
 			if @maker.update(maker_params)

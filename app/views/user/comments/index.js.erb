@@ -1,3 +1,5 @@
+// js.erbファイルのためrubyとjsどちらのコードも使える
 $("#comments_area").html("<%= j(render 'index', { comments: @comment.item.comments }) %>");
+//セレクタcomments_area
 $("textarea").val('');
 // 「$("textarea").val('')」によって、コメント入力後のコメント入力欄を空にしている
