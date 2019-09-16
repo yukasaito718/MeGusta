@@ -1,5 +1,6 @@
 class Admin::MakersController < ApplicationController
 	before_action :authenticate_admin!
+
 	def destroy
 		maker = Maker.find(params[:id])
 		maker.destroy

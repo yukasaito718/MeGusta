@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
  before_action :configure_permitted_parameters, if: :devise_controller?#deviseコントローラが動いた際、deviseのストロングパラメータを反映させる
-	def after_sign_in_path_for(resource)
+
+  def after_sign_in_path_for(resource)
 		if resource.is_a?(Admin)#adminのmodel名
 	  		admin_path
 		elsif resource.is_a?(Maker)#Makerのmodel名

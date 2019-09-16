@@ -1,103 +1,103 @@
-          <% if flash[:notice] %>
-          <p class="text-font notice">
-            <%= flash[:notice] %>
-          </p>
-          <% end %>
+<% if flash[:notice] %>
+  <p class="text-font notice">
+    <%= flash[:notice] %>
+  </p>
+<% end %>
 
-          <div class="item_show_box">
-            <div class="item_show_textbox">
-              <h2 class="rank_text_color">ITEM EDIT</h2>
-              <div class ="ander-line"></div>
-              <div class="item_text">
-                <%= form_for [:maker, @item] do |f| %>
-                <div class="space">
-                  <span class="item_name">商品名：</span>
-                  <%= f.text_field :item_name, class:'form-control', :placeholder => "商品名を入力 " %>
-                </div>
+<div class="item_show_box">
+  <div class="item_show_textbox">
+    <h2 class="rank_text_color">ITEM EDIT</h2>
+    <div class ="ander-line"></div>
+    <div class="item_text">
+      <%= form_for [:maker, @item] do |f| %>
+        <div class="space">
+          <span class="item_name">商品名：</span>
+          <%= f.text_field :item_name, class:'form-control', :placeholder => "商品名を入力 " %>
+        </div>
 
-                <div class="space">
-                  <span class="item_name">商品紹介：</span>
-                  <%= f.text_area :introduction, class:'form-control', :placeholder => "商品の特徴について入力　セールスポイントなど " %>
-                </div>
+        <div class="space">
+          <span class="item_name">商品紹介：</span>
+          <%= f.text_area :introduction, class:'form-control', :placeholder => "商品の特徴について入力　セールスポイントなど " %>
+        </div>
 
-                <div class="space">
-                  <span class="item_name">販売価格：</span>
-                  <%= f.text_field :price, class:'form-control', :placeholder => "※半角数字　税抜価格" %>
-                </div>
+        <div class="space">
+          <span class="item_name">販売価格：</span>
+          <%= f.text_field :price, class:'form-control', :placeholder => "※半角数字　税抜価格" %>
+        </div>
 
-                <div class="space">
-                  <span class="item_name">内容量：</span>
-                  <%= f.text_field :count, class:'form-control', :placeholder => "※例：12個入り　など" %>
-                </div>
+        <div class="space">
+          <span class="item_name">内容量：</span>
+          <%= f.text_field :count, class:'form-control', :placeholder => "※例：12個入り　など" %>
+        </div>
 
-                <div class="space">
-                  <span class="item_name">賞味期限：</span>
-                  <%= f.text_field :freshness_date, class:'form-control', :placeholder => "※例：１週間・３日　など" %>
-                </div>
+        <div class="space">
+          <span class="item_name">賞味期限：</span>
+          <%= f.text_field :freshness_date, class:'form-control', :placeholder => "※例：１週間・３日　など" %>
+        </div>
 
-                <div class="space">
-                  <span class="item_name">販売状況：</span>
-                  <div class="radio">
-                    <%= f.radio_button :is_sold, 'true', { id:"radio-1", type:"radio", checked: true}%>
-                    <label for="radio-1" class="radio-label">販売中</label>
-                  </div>
-                  <div class="radio">
-                    <%= f.radio_button :is_sold, 'false', { id:"radio-2", type:"radio"} %>
-                    <label for="radio-2" class="radio-label">販売中止</label>
-                  </div>
-                </div>
-
-                <div class="space">
-                  <span class="item_name">保存方法：</span>
-                  <div class="radio">
-                    <%= f.radio_button :is_refrigeration, 'true', { id:"radio-1", type:"radio", checked: true}%>
-                    <label for="radio-1" class="radio-label">常温保存可能</label>
-                  </div>
-                  <div class="radio">
-                    <%= f.radio_button :is_refrigeration, 'false', { id:"radio-2", type:"radio"} %>
-                    <label for="radio-2" class="radio-label">要冷蔵</label>
-                  </div>
-                </div>
-
-                <div class="space">
-                  <span class="item_name">個装：</span>
-                  <div class="radio">
-                    <%= f.radio_button :is_packaged, 'true', { id:"radio-1", type:"radio", checked: true}%>
-                    <label for="radio-1" class="radio-label">あり</label>
-                  </div>
-                  <div class="radio">
-                    <%= f.radio_button :is_packaged, 'false', { id:"radio-2", type:"radio"} %>
-                    <label for="radio-2" class="radio-label">なし</label>
-                  </div>
-                </div>
-
-                <div class="space">
-                  <span class="item_name">画像選択：</span>
-                  <%= f.attachment_field :image, size: "100x100", fallback: "/images/no_image.jpg" %>
-                </div>
-
-                <div class="space">
-                  <span class="item_name">カテゴリー選択：</span><br>
-                  <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, include_hidden: false) do |category| %>
-                  <%= category.label do %>
-                  <%= category.check_box %>
-                  <%= category.text %>
-                  <% end %>
-                  <% end %>
-                </div>
-
-                <div class="space">
-                  <span class="item_name">取扱店舗選択：</span>
-                  <br>
-                  <%= f.collection_check_boxes(:shop_ids, Shop.all, :id, :name) do |shop| %>
-                  <%= shop.label {shop.check_box + shop.text} %>
-                  <% end %>
-                </div>
-
-                <div class="space">
-                  <%= f.submit "商品編集", class: "btn btn-primary btn-lg btn-block" %>
-                </div>
-                <% end %>
-              </div>
-            </div>
+        <div class="space">
+          <span class="item_name">販売状況：</span>
+          <div class="radio">
+            <%= f.radio_button :is_sold, 'true', { id:"radio-1", type:"radio", checked: true}%>
+            <label for="radio-1" class="radio-label">販売中</label>
           </div>
+          <div class="radio">
+            <%= f.radio_button :is_sold, 'false', { id:"radio-2", type:"radio"} %>
+            <label for="radio-2" class="radio-label">販売中止</label>
+          </div>
+        </div>
+
+        <div class="space">
+          <span class="item_name">保存方法：</span>
+          <div class="radio">
+            <%= f.radio_button :is_refrigeration, 'true', { id:"radio-1", type:"radio", checked: true}%>
+            <label for="radio-1" class="radio-label">常温保存可能</label>
+          </div>
+          <div class="radio">
+            <%= f.radio_button :is_refrigeration, 'false', { id:"radio-2", type:"radio"} %>
+            <label for="radio-2" class="radio-label">要冷蔵</label>
+          </div>
+        </div>
+
+        <div class="space">
+          <span class="item_name">個装：</span>
+          <div class="radio">
+            <%= f.radio_button :is_packaged, 'true', { id:"radio-1", type:"radio", checked: true}%>
+            <label for="radio-1" class="radio-label">あり</label>
+          </div>
+          <div class="radio">
+            <%= f.radio_button :is_packaged, 'false', { id:"radio-2", type:"radio"} %>
+            <label for="radio-2" class="radio-label">なし</label>
+          </div>
+        </div>
+
+        <div class="space">
+          <span class="item_name">画像選択：</span>
+          <%= f.attachment_field :image, size: "100x100", fallback: "/images/no_image.jpg" %>
+        </div>
+
+        <div class="space">
+          <span class="item_name">カテゴリー選択：</span><br>
+          <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, include_hidden: false) do |category| %>
+            <%= category.label do %>
+              <%= category.check_box %>
+              <%= category.text %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="space">
+          <span class="item_name">取扱店舗選択：</span>
+          <br>
+          <%= f.collection_check_boxes(:shop_ids, Shop.all, :id, :name) do |shop| %>
+            <%= shop.label {shop.check_box + shop.text} %>
+          <% end %>
+        </div>
+
+        <div class="space">
+          <%= f.submit "商品編集", class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

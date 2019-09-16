@@ -1,8 +1,10 @@
+<!--コメントの表示-->
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
     <p><%="#{comment.user.name}さん" %></p>
     <p>レビュー：<%= comment.comment %></p>
-    <% if comment.user == current_user %>
+
+    <% if comment.user == current_user %><!--コメントしたユーザーのレビューだけ削除できる-->
       <p><%= link_to 'レビューを削除する', item_comment_path(comment.item_id, comment.id), method: :delete, remote: true %></p>
     <% end %>
   <% end %>
