@@ -25,16 +25,25 @@ $(function() {
     $('#sp-menu').fadeToggle();
     return false;
   });
-
- $('.toggle_switch').on('click',function(){
-  $(this).toggleClass('open');
-  $(this).next('.toggle_contents').slideToggle();
+ 	$('.toggle_switch').on('click',function(){
+	  $(this).toggleClass('open');
+	  $(this).next('.toggle_contents').slideToggle();
+	});
 });
- });
+
 $(function(){
-$("#acMenu dt").on("click", function() {
-$(this).next().slideToggle();
-});
+	$("#acMenu dt").on("click", function() {
+	$(this).next().slideToggle();
+	});
 });
 
-
+// ABOUTページ
+$(function () {
+  // ①
+  $('.target').hide();
+  // ②
+  $('.target').each(function (i) {
+  // ③
+    $(this).delay(1000 * i).fadeIn(1000);
+  });
+});
