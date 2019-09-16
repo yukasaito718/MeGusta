@@ -36,3 +36,14 @@ $(function(){
 	$(this).next().slideToggle();
 	});
 });
+
+// ABOUTページ
+$(function () {
+  // ①
+  $('.target').hide();
+  // ②
+  $('.target').each(function (i) {
+  // ③
+    $(this).delay(1000 * i).fadeIn(1000);
+  });
+});
