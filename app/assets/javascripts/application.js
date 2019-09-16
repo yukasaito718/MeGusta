@@ -37,13 +37,14 @@ $(function(){
 	});
 });
 
-// ABOUTページ
+// ABOUTフェードイン
 $(function () {
-  // ①
+// フェードイン要素を隠す
   $('.target').hide();
-  // ②
+// 繰り返し処理
+// function (i)はjQueryメソッドのコールバック関数
+// ※ここではiはインデックス番号、0番から順にdelayをかけて一つづつ表示させる
   $('.target').each(function (i) {
-  // ③
     $(this).delay(1000 * i).fadeIn(1000);
   });
 });
