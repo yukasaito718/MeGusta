@@ -1,5 +1,6 @@
 class Maker::ShopsController < ApplicationController
 	before_action :authenticate_maker!
+
 	def new
 		@shop = Shop.new
 	end
@@ -32,6 +33,9 @@ class Maker::ShopsController < ApplicationController
 		shop.destroy
 		redirect_to makerpage_path
 	end
+
+	private
+
 	def shop_params
 		params.require(:shop).permit(:name, :name_hurigana, :postal_code, :street_address, :phone_number, :maker_id )
 	end

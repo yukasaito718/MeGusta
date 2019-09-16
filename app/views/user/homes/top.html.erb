@@ -1,11 +1,11 @@
 
 
 <!-- メッセージの表示 -->
+<% if flash[:notice] %>
+<% end %>
 
-	<% if flash[:notice] %>
-	<% end %>
-<div class="top-box">
 	<!-- スライドショー-->
+<div class="top-box">
 	<div id="sampleCarousel" class="carousel slide" data-ride="carousel" data-pause="hover">
 		<ol class="carousel-indicators">
 			<li class="active" data-target="#sampleCarousel" data-slide-to="0"></li>
@@ -34,6 +34,7 @@
 	</div>
 </div>
 
+<!--ランキング-->
 <div class ="rank-box clearfix">
 	<h2 class="rank_text_color">RANKING</h2>
 	<div class="ander-line"></div>
@@ -49,4 +50,5 @@
 		<% end %>
 	</div>
 </div>
+
 		<%= render 'layouts/user_sidebar', categories: @categories %>

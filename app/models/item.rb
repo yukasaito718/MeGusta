@@ -55,7 +55,7 @@ class Item < ApplicationRecord
 		end
 		results
 	end
-		def self.search_for_maker(keyword)#メーカー名からアイテムを見つけ出すクラスメソッド
+	def self.search_for_maker(keyword)#メーカー名からアイテムを見つけ出すクラスメソッド
 		results = []
 		makers = Maker.where('name like ?', "%#{keyword}%")
 		makers.each do |maker|
@@ -63,5 +63,4 @@ class Item < ApplicationRecord
 		end
 		results
 	end
-
 end

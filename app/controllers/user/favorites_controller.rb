@@ -7,11 +7,11 @@ class User::FavoritesController < ApplicationController
 		favorite.save
 		@item.reload
 		# respond_to do |format|
-			# format.js
+		# format.js
 	end
 
 	def destroy
-		# @item = Favorite.find(params[:item_id]).item 記念
+		# @item = Favorite.find(params[:item_id]).item
 		@item = Item.find(params[:item_id])
 	    favorite = Favorite.find_by(item_id: @item.id, user_id: current_user.id)
 	    favorite.destroy

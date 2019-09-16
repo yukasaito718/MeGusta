@@ -1,29 +1,27 @@
-<!--     お気に入り機能ボタン画面の部分テンプレート
- -->
- <%# binding.pry %>
+<!-- お気に入り機能ボタン画面の部分テンプレート -->
 <span class="like">
   <div id="item-<%= item.id %>">
     <% if user_signed_in? %>
     <%# ユーザとしてログインしている場合 %>
-    <% if item.iine?(current_user) %>
-    <%# ログインしてるユーザがいいねしている場合 %>
-    <%= form_for([item, Favorite.find_by(item: item.id, user_id: current_user.id)], method: :delete, remote: true) do |f| %>
-    <%= button_tag(class: "btn btn-default btn-xs") do %>
-    <%= content_tag :span, "#{item.favorites_count}", class: "glyphicon glyphicon-heart" ,style:"color: red;"%>
-    <% end %>
-    <% end %>
-    <% else %>
+      <% if item.iine?(current_user) %>
+      <%# ログインしてるユーザがいいねしている場合 %>
+        <%= form_for([item, Favorite.find_by(item: item.id, user_id: current_user.id)], method: :delete, remote: true) do |f| %>
+          <%= button_tag(class: "btn btn-default btn-xs") do %>
+            <%= content_tag :span, "#{item.favorites_count}", class: "glyphicon glyphicon-heart" ,style:"color: red;"%>
+          <% end %>
+        <% end %>
+      <% else %>
     <%# ログインしてるユーザがいいねしてない場合 %>
-    <%= form_for([item, Favorite.new], remote: true) do |f| %>
-    <%= button_tag(class: "btn btn-default btn-xs") do %>
-    <%= content_tag :span, "#{item.favorites_count}", class: "glyphicon glyphicon-heart-empty" %>
-    <% end %>
-    <% end %>
-    <% end %>
+        <%= form_for([item, Favorite.new], remote: true) do |f| %>
+          <%= button_tag(class: "btn btn-default btn-xs") do %>
+            <%= content_tag :span, "#{item.favorites_count}", class: "glyphicon glyphicon-heart-empty" %>
+          <% end %>
+        <% end %>
+      <% end %>
     <% else %>
     <%# メーカーでログインしている場合またはログインしていない場合 %>
-    <span>♡</span>
-    <%= item.favorites_count %>
+      <span>♡</span>
+      <%= item.favorites_count %>
     <% end %>
   </div>
 </span>
