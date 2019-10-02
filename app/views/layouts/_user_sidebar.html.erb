@@ -1,15 +1,19 @@
 
-
+<!-- カテゴリーボックス -->
 <div class="tag_box maru_kado">
 	<div class="tag_box_center">
 		<h2 class="rank_text_color">CATEGORY</h2>
 		<div class="ander-line"></div>
+		<div class="row">
 		<% @categories.each do |category| %>
 			<%= link_to category_items_path(category.id) do %>
-				<div class="tag_text_box ">
-						<%= category.name %>
-				</div>
+					<div class="col-sm-4 col-lg-3">
+						<div class="tag_text_box ">
+							<%= category.name %>
+						</div>
+					</div>
 			<% end %>
 		<% end %>
+	</div>
 	</div>
 </div>
