@@ -48,3 +48,12 @@ $(function () {
     $(this).delay(1000 * i).fadeIn(1000);
   });
 });
+
+// ヘッダーENTRYのスライド
+$(function(){
+
+$('#slide_btn').on('click', function(){
+    $('#slide_box').slideToggle('fast');
+});
+
+});
